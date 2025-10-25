@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akıllı Balık Avı Asistanı</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <link rel="icon" href="{{ url_for('static', filename='images/logo-ikon.png') }}" type="image/jpg">
+    
+</head>
+<body class="text-gray-800">
+
+    <header class="bg-gradient-to-r from-blue-700 to-teal-600 text-white shadow-lg sticky top-0 z-40">
+        <nav class="container mx-auto px-6 py-1 flex justify-between items-center">
+            <a href="#" class="flex items-center gap-3">
+                <img src="{{ url_for('static', filename='images/logo-ikon.png') }}" alt="Akıllı Balık Asistanı İkonu" class="h-16 w-16 rounded-full border-2 border-gray-100 p-1 object-contain">
+                <span class="text-xl font-bold text-white">Akıllı Balık Asistanı</span>
+            </a>
+            <div class="flex items-center gap-6">
+                <div id="user-status"></div>
+                <div>
+                    <button id="mobile-menu-button" class="text-white hover:text-gray-200 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div id="mobile-menu" class="hidden bg-white shadow-xl fixed top-16 right-4 z-30 w-64 rounded-md border border-gray-200 overflow-hidden">
+        </div>
+
+    <main>
+        <section class="hero text-white text-center py-20 md:py-32 relative overflow-hidden">
+            <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover">
+                <source src="{{ url_for('static', filename='videos/sea.mp4') }}" type="video/mp4">
+                Tarayıcınız video etiketini desteklemiyor.
+            </video>
+            <div class="absolute inset-0 bg-black/50"></div>
+            <div class="container mx-auto px-6 relative">
+                <h1 class="text-4xl md:text-6xl font-bold mb-4">Oltanızın Ucundaki Bilim</h1>
+                <p class="text-lg md:text-xl mb-8">Hava durumunu, ay evresini ve anlık verileri analiz ederek en doğru av zamanını bulun.</p>
+               <a href="#asistan" class="bg-gradient-to-r from-blue-600 to-teal-500 hover:from-blue-700 hover:to-teal-600 text-white font-bold py-3 px-8 rounded-full transition duration-300">Hemen Planla</a>
+            </div>
+        </section>
+
+        <div class="container mx-auto px-6 xl:hidden" aria-hidden="true">
+            <div class="my-6 flex h-[100px] w-full max-w-lg mx-auto items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-100 text-center text-gray-500">
+                <div>
+                    <span class="font-semibold">Mobil Reklam Alanı</span>
+                    <br>
+                    <span class="text-sm">(Örn: 320x100)</span>
+                </div>
+            </div>
+        </div>
+
+        <section id="asistan" class="py-16 md:py-20 bg-white scroll-mt-16 relative">
+    
+    <div id="reklam-alani-sol" class="w-[230px] min-h-[750px] absolute left-6 top-20 hidden xl:block" aria-hidden="true">
+        <div class="bg-gray-100 border border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-center text-gray-500 p-4 sticky top-24 h-[600px]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-400 mb-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M7.838 7.162a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06L9.5 12l-1.662-1.662a.75.75 0 010-1.06zM16.162 7.162a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06L18.5 12l-1.662-1.662a.75.75 0 010-1.06z" />
+            </svg>
+            <span class="font-semibold">Reklam Alanı</span>
+            <span class="text-sm mt-1">(230x750)</span>
+            <p class="text-xs mt-2">
+                </p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-6">
+        <div class="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-gray-200">
+    
+            <div class="text-center mb-6">
+                <h2 class="text-3xl font-bold text-gray-800">Avını Keşfet ve Planla</h2>
+                <p class="text-gray-500 mt-2">Tavsiye almak için haritada bir nokta seçin veya özel bir balık arayın.</p>
+            </div>
+    
+            <div class="space-y-6">
+                <div>
+                    <div class="relative z-0">
+                    <label class="block text-sm font-medium text-gray-700 mb-2 text-center">1. Avlanacağın noktayı haritadan seç</label>
+                    <div class="flex justify-center mb-4 rounded-lg shadow-sm" role="group">
+                    <button type="button" id="su-tipi-deniz" class="px-6 py-2 text-sm font-medium text-white bg-blue-600 border border-gray-200 rounded-l-lg hover:bg-blue-700">
+                        Deniz Avı
+                    </button>
+                    <button type="button" id="su-tipi-tatli" class="px-6 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100">
+                        Tatlı Su Avı
+                    </button>
+                </div>
+                    <div id="map" class="h-80 w-full rounded-lg shadow-md border border-gray-300 relative"></div>
+                    <p id="konum-bilgisi" class="text-center text-sm text-gray-500 mt-2">Haritada bir yere tıkladığınızda tavsiyeler burada belirecektir.</p>
+                </div>
+        
+                <div class="relative z-10 pt-4 border-t border-gray-200">
+                    <label for="balik-arama" class="block text-sm font-medium text-gray-700 mb-1 text-center">2. Özel bir balık hedefliyor musun? (İsteğe Bağlı)</label>
+                
+                    <div class="flex items-center gap-2 max-w-lg mx-auto">
+                        <input type="text" id="balik-arama" placeholder="Balık adı yazarak ara..." class="flex-grow w-full p-3 bg-gray-50 border border-gray-300 rounded-lg" autocomplete="off">
+                        <button id="detay-gor-btn" class="bg-gray-200 text-gray-700 font-semibold py-3 px-4 rounded-lg" disabled>Detay</button>
+                    </div>
+                  <div id="arama-sonuclari" class="absolute z-[999] w-full bg-white border rounded-b-lg shadow-lg hidden max-w-lg mx-auto left-0 right-0"></div>
+                    <input type="hidden" id="secilen-balik-id">
+                </div>
+            </div>
+        
+            <div id="sonuc-alani" class="hidden space-y-6 pt-6 mt-6 border-t border-gray-200">
+    <div id="public-catches-alani" class="hidden space-y-4">
+        </div>
+    </div>
+            <div id="yukleniyor" class="hidden text-center py-4">
+                <svg class="animate-spin h-8 w-8 text-blue-600 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
+                <p class="mt-2 text-gray-600">Veriler analiz ediliyor, en iyi balıklar bulunuyor...</p>
+            </div>
+            </div>
+    </div>
+
+    <div id="reklam-alani-sag" class="w-[230px] min-h-[750px] absolute right-6 top-20 hidden xl:block" aria-hidden="true">
+        <div class="bg-gray-100 border border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center text-center text-gray-500 p-4 sticky top-24 h-[600px]">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 text-gray-400 mb-2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h.01M15 12h.01M7.838 7.162a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06L9.5 12l-1.662-1.662a.75.75 0 010-1.06zM16.162 7.162a.75.75 0 011.06 0l2.25 2.25a.75.75 0 010 1.06l-2.25 2.25a.75.75 0 01-1.06-1.06L18.5 12l-1.662-1.662a.75.75 0 010-1.06z" />
+            </svg>
+            <span class="font-semibold">Reklam Alanı</span>
+            <span class="text-sm mt-1">(230x750)</span>
+            <p class="text-xs mt-2">
+                </p>
+        </div>
+    </div>
+</section>
+<div class="container mx-auto px-6 xl:hidden" aria-hidden="true">
+            <div class="my-6 flex h-[100px] w-full max-w-lg mx-auto items-center justify-center rounded-lg border border-dashed border-gray-300 bg-gray-100 text-center text-gray-500">
+                <div>
+                    <span class="font-semibold">Mobil Reklam Alanı</span>
+                    <br>
+                    <span class="text-sm">(Örn: 320x100)</span>
+                </div>
+            </div>
+        </div>
+
+
+        <section id="misyon" class="py-16 md:py-20">
+            <div class="container mx-auto px-6 text-center">
+                
+                <h2 class="text-3xl font-bold text-gray-800 mb-6">Hakkımızda</h2>
+                
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-12">
+                    Akıllı Balık Asistanı, balıkçılık tutkusunu bilimsel veri analiziyle birleştiren modern bir av rehberidir. Bizler, 'rastgele' atılan oltalar yerine, hava durumu, su koşulları, basınç ve ay evreleri gibi kritik verileri analiz ederek 'en doğru zamanda' en doğru yerde olmanızı hedefleyen bir platform kurduk. Amacımız, teknolojiyi kullanarak hem av verimliliğinizi artırmak hem de yasal limitler ve üreme dönemleri gibi konularda farkındalık yaratarak sürdürülebilir balıkçılığa katkı sağlamaktır. Felsefemiz, misyonumuz ve vizyonumuz bu temel üzerine kuruludur:
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-12 text-left">
+                    <div class="bg-white p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <h3 class="text-2xl font-semibold mb-4 text-blue-800 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672L13.684 16.6m0 0l-2.51 2.225.569-9.47 5.227 7.917-3.286-.672zM12 2.25C6.477 2.25 2 6.727 2 12s4.477 9.75 10 9.75 10-4.477 10-9.75S17.523 2.25 12 2.25z" />
+                            </svg>
+                            <span>Misyonumuz</span>
+                        </h3>
+                        <p class="text-gray-600">Türkiye'deki amatör ve profesyonel tüm balıkçıların, bilimsel veriler ve tecrübeler ışığında daha keyifli, verimli ve bilinçli avlar yapmasını sağlamak.</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
+                        <h3 class="text-2xl font-semibold mb-4 text-green-700 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-7 h-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span>Vizyonumuz</span>
+                        </h3>
+                        <p class="text-gray-600">Balıkçılık tutkusunu teknoloji ile birleştirerek, Türkiye'nin en güvenilir ve en çok kullanılan dijital av arkadaşı olmak.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="balik-listesi-bolumu" class="hidden py-16 md:py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 id="balik-listesi-baslik" class="text-3xl font-bold text-gray-800">Balık Listesi</h2>
+                </div>
+                <div id="balik-listesi-icerik" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+            </div>
+        </section>
+
+        <section id="sss" class="py-16 md:py-20 bg-white scroll-mt-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-gray-800">Sıkça Sorulan Sorular (SSS)</h2>
+                    <p class="text-gray-500 mt-2">Merak ettiğiniz soruların yanıtlarını burada bulabilirsiniz.</p>
+                </div>
+                <div class="space-y-8">
+                    
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                            </svg>
+                            <span>Bu site nasıl çalışıyor?</span>
+                        </h3>
+                        <p class="text-gray-600">Akıllı Balık Asistanı, seçtiğiniz konumdaki anlık hava durumu, basınç, ay evresi ve gün zamanı gibi bilimsel verileri analiz eder. Bu verileri veritabanımızdaki balık davranış modelleriyle karşılaştırarak size o an için en verimli av tavsiyelerini sunar.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                            </svg>
+                            <span>Veriler ne kadar güvenilir?</span>
+                        </h3>
+                        <p class="text-gray-600">Hava durumu verilerimiz OpenWeatherMap API'si üzerinden anlık olarak çekilmektedir. Balık bilgileri ve avlanma kuralları ise tecrübeli balıkçılar ve su ürünleri kaynakları referans alınarak hazırlanmıştır. Bu bir tavsiye platformudur, %100 garanti sunmaz ancak şansınızı ciddi oranda artırmayı hedefler.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                            </svg>
+                            <span>Av Kayıt Defteri ne işe yarıyor?</span>
+                        </h3>
+                        <p class="text-gray-600">Giriş yaptıktan sonra, başarılı avlarınızı kaydedebilirsiniz. Hangi balığı, hangi konumda, hangi hava koşulunda ve hangi yöntemle yakaladığınızı not alarak kendi kişisel veritabanınızı oluşturabilir ve gelecekteki avlarınızı bu tecrübelere göre planlayabilirsiniz.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border">
+                        <h3 class="font-semibold text-lg text-gray-800 mb-3 flex items-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-blue-600">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9 5.25h.008v.008H12v-.008z" />
+                            </svg>
+                            <span>Yasal uyarılar (limitler, yasak zamanları) güncel mi?</span>
+                        </h3>
+                        <p class="text-gray-600">Veritabanımızdaki yasal boy limitleri ve üreme dönemi yasakları Tarım ve Orman Bakanlığı'nın tebliğlerine göre düzenli olarak güncellenmektedir. (Örn: Lahoz yasağı gibi kritik bilgiler sisteme anında işlenir). Ancak her zaman en güncel tebliği kontrol etmek balıkçının sorumluluğundadır.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="iletisim-formu" class="py-16 md:py-20 scroll-mt-20">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-gray-800">İletişim Formu</h2>
+                    <p class="text-gray-500 mt-2">Soru ve önerilerinizi bize iletin.</p>
+                </div>
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="p-4 mb-6 text-sm rounded-lg {% if category == 'success' %} bg-green-100 text-green-800 {% else %} bg-red-100 text-red-800 {% endif %}" role="alert">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <form action="{{ url_for('destek_formu') }}" method="POST" class="space-y-6">
+                    <div>
+                        <label for="adi_soyadi" class="block text-sm font-medium text-gray-700">Adı Soyadı</label>
+                        <input type="text" name="adi_soyadi" id="adi_soyadi" required class="mt-1 block w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="email_form" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" name="email" id="email_form" required class="mt-1 block w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="telefon" class="block text-sm font-medium text-gray-700">Telefon</label>
+                        <input type="tel" name="telefon" id="telefon" placeholder="(XXXX) XXX XX XX" required class="mt-1 block w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="konu" class="block text-sm font-medium text-gray-700">Konu</label>
+                        <input type="text" name="konu" id="konu" required class="mt-1 block w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="mesaj" class="block text-sm font-medium text-gray-700">Mesaj</label>
+                        <textarea name="mesaj" id="mesaj" rows="5" required class="mt-1 block w-full p-3 bg-gray-50 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500"></textarea>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="aydinlatma_metni" name="aydinlatma_metni" type="checkbox" required class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="aydinlatma_metni" class="ml-2 block text-sm text-gray-900">Kişisel verilerin işlenmesine ilişkin <a href="#" id="aydinlatma-linki" class="text-blue-600 hover:underline">Aydınlatma Metnini</a> okudum.</label>
+                    </div>
+                    <div class="flex justify-end gap-4">
+                        <button type="submit" class="px-6 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-600 hover:bg-green-700">Gönder</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 pt-16 pb-6">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div>
+                <h4 class="text-white font-semibold text-lg mb-4">Kurumsal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#misyon" class="hover:text-white transition-colors">Hakkımızda</a></li>
+                    <li><a href="#" id="footer-aydinlatma-linki" class="hover:text-white transition-colors">Gizlilik Politikası</a></li>
+                    <li><a href="#" id="kullanim-linki" class="hover:text-white transition-colors">Kullanım Koşulları</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-lg mb-4">Balık Rehberi</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" id="footer-tuzlu-su-btn" class="hover:text-white transition-colors">Tuzlu Su Balıkları</a></li>
+                    <li><a href="#" id="footer-tatli-su-btn" class="hover:text-white transition-colors">Tatlı Su Balıkları</a></li>
+                    <li><a href="#asistan" class="hover:text-white transition-colors">Balık Ansiklopedisi</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="text-white font-semibold text-lg mb-4">Destek</h4>
+                <ul class="space-y-2">
+                    <li><a href="#iletisim-formu" class="hover:text-white transition-colors">Bize Ulaşın</a></li>
+                    <li><a href="#sss" class="hover:text-white transition-colors">Sıkça Sorulan Sorular</a></li>
+                </ul>
+            </div>
+
+            </div>
+
+        <div class="border-t border-gray-700 mt-8 pt-6 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
+            <p class="mt-4 md:mt-0">&copy; 2025 Akıllı Balık Asistanı. Tüm hakları saklıdır.</p>
+            
+            <p class="mt-4 md:mt-0">
+                Tasarım & Geliştirme: <strong class="text-gray-300 hover:text-white font-medium">Batuhan Atılgan</strong>
+            </p>
+            
+            <p class="mt-4 md:mt-0">Soru ve önerileriniz için: 
+                <a href="mailto:akillibalikasistani@gmail.com" class="text-blue-400 hover:underline">
+                    akillibalikasistani@gmail.com
+                </a>
+            </p>
+        </div>
+    </div>
+</footer>
+
+    <div id="auth-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-sm p-6 space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 id="auth-title" class="text-xl font-bold text-gray-800">Giriş Yap</h3>
+                <button id="auth-kapat-btn" class="p-2 text-2xl leading-none">&times;</button>
+            </div>
+            <div id="auth-error" class="hidden text-sm text-center text-red-600 bg-red-100 p-2 rounded-lg"></div>
+            <div id="isim-soyisim-alanı" class="hidden">
+                <label for="isim-soyisim" class="block text-sm font-medium text-gray-700">İsim Soyisim</label>
+                <input type="text" id="isim-soyisim" class="w-full p-2 mt-1 border border-gray-300 rounded-lg">
+            </div>
+            <div><label for="email" class="block text-sm font-medium text-gray-700">E-posta</label><input type="email" id="email" class="w-full p-2 mt-1 border border-gray-300 rounded-lg"></div>
+            <div><label for="password" class="block text-sm font-medium text-gray-700">Şifre</label><input type="password" id="password" class="w-full p-2 mt-1 border border-gray-300 rounded-lg"></div>
+            <div class="text-right text-sm -mt-2 mb-4">
+                <a href="#" id="forgot-password-link" class="font-semibold text-blue-600 hover:underline">Şifremi unuttum</a>
+            </div>
+            <div id="login-actions">
+                <button id="login-btn" class="w-full py-2 bg-blue-600 text-white rounded-lg">Giriş Yap</button>
+                <p class="text-center text-sm mt-4">Hesabın yok mu? <a href="#" id="switch-to-signup" class="font-semibold text-blue-600 hover:underline">Kaydol</a></p>
+            </div>
+            <div id="signup-actions" class="hidden">
+                <button id="signup-btn" class="w-full py-2 bg-green-600 text-white rounded-lg">Kaydol</button>
+                <p class="text-center text-sm mt-4">Zaten hesabın var mı? <a href="#" id="switch-to-login" class="font-semibold text-blue-600 hover:underline">Giriş Yap</a></p>
+            </div>
+            <div class="relative flex py-3 items-center">
+                <div class="flex-grow border-t border-gray-300"></div>
+                <span class="flex-shrink mx-4 text-gray-400 text-sm">veya</span>
+                <div class="flex-grow border-t border-gray-300"></div>
+            </div>
+            <div>
+                <button id="google-signin-btn" class="w-full flex items-center justify-center gap-2 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+                    <svg class="w-5 h-5" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path><path fill="none" d="M0 0h48v48H0z"></path></svg>
+                    <span class="text-sm font-semibold text-gray-700">Google ile Giriş Yap</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <div id="kayit-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 space-y-4">
+            <h3 class="text-xl font-bold text-gray-800">Başarılı Avı Kaydet</h3>
+            <div>
+                <label for="av-yontemi" class="block text-sm font-medium text-gray-700 mb-1">Avlanma Yöntemi</label>
+                <select id="av-yontemi" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <option value="Bilinmiyor">Seçiniz...</option><option value="LRF">LRF</option><option value="Light Spin">Light Spin</option><option value="Spin">Spin</option><option value="Yemli Av">Yemli Av</option><option value="Sırtı">Sırtı</option><option value="Jigging">Jigging</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="av-fotograf" class="block text-sm font-medium text-gray-700 mb-1">Av Fotoğrafı (İsteğe Bağlı)</label>
+                <input type="file" id="av-fotograf" accept="image/*" class="w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none file:bg-gray-200 file:border-0 file:px-4 file:py-2 file:me-3 file:font-semibold">
+            </div>
+            <div>
+    <label for="av-notlari" class="block text-sm font-medium text-gray-700 mb-1">Ek Notlar</label>
+    <textarea id="av-notlari" rows="3" class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Örn: 35cm civarı, sahte karides ile yakalandı..."></textarea>
+</div>
+
+<div class="flex items-center space-x-2 my-2">
+    <input id="av-paylas" type="checkbox" class="h-5 w-5 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+    <label for="av-paylas" class="text-sm font-medium text-gray-800">
+        Bu avı herkese açık olarak paylaş
+    </label>
+</div>
+<p class="text-xs text-gray-500 -mt-1 mb-3">
+    (Konumunuz, notunuz ve fotoğrafınız diğer balıkçılara gösterilecektir.)
+</p>
+<div class="flex justify-end space-x-3">
+    </div>
+            <div class="flex justify-end space-x-3">
+                <button id="modal-kapat-btn" class="px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300">İptal</button>
+                <button id="kaydi-onayla-btn" class="px-4 py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700">Kaydı Onayla</button>
+            </div>
+        </div>
+    </div>
+    <div id="defter-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 space-y-4 flex flex-col">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800">Av Kayıt Defterim</h3>
+                <button id="defter-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
+            </div>
+            <div id="kayit-listesi" class="space-y-3 flex-grow"></div>
+        </div>
+    </div>
+    <div id="ansiklopedi-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-lg p-6 space-y-4">
+            <div class="flex justify-between items-center">
+                <h3 id="ansiklopedi-baslik" class="text-2xl font-bold text-gray-800">Balık Detayları</h3>
+                <button id="ansiklopedi-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
+            </div>
+            <div id="ansiklopedi-icerik" class="space-y-3 text-gray-700"></div>
+        </div>
+    </div>
+
+    <div id="account-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-md p-6 md:p-8 space-y-6">
+            <div class="flex justify-between items-center">
+                <h3 class="text-xl font-bold text-gray-800">Hesabım</h3>
+                <button id="account-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
+            </div>
+            
+            <div class="space-y-2">
+                <label for="account-name" class="block text-sm font-medium text-gray-700">İsim Soyisim</label>
+                <div class="flex gap-2">
+                    <input type="text" id="account-name" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <button id="save-name-btn" class="py-2 px-4 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700">Kaydet</button>
+                </div>
+            </div>
+
+            <div class="space-y-2 pt-4 border-t">
+                 <p class="text-sm font-medium text-gray-700">Şifreyi Değiştir</p>
+                 <div class="space-y-2">
+                    <input type="password" id="current-password" placeholder="Mevcut Şifre" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <input type="password" id="new-password" placeholder="Yeni Şifre" class="w-full p-2 border border-gray-300 rounded-lg">
+                    <button id="save-password-btn" class="w-full py-2 bg-green-600 text-white font-semibold rounded-lg hover:bg-green-700">Şifreyi Güncelle</button>
+                 </div>
+            </div>
+            <div id="account-error" class="hidden text-sm text-center text-red-600 bg-red-100 p-2 rounded-lg"></div>
+        </div>
+    </div>
+
+    <div id="aydinlatma-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 md:p-8 flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Kişisel Verilerin İşlenmesine İlişkin Aydınlatma Metni</h3>
+                <button id="aydinlatma-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
+            </div>
+            <div id="aydinlatma-icerik" class="space-y-3 text-sm text-gray-600 max-h-[70vh] overflow-y-auto pr-4">
+                <p><strong>Veri Sorumlusu:</strong> Akıllı Balık Asistanı</p>
+                <p>Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) uyarınca hazırlanmıştır.</p>
+                <h4 class="font-semibold text-gray-800 pt-2">İşlenen Kişisel Veriler</h4>
+                <p>Adınız, soyadınız, e-posta adresiniz, telefon numaranız ve mesaj içeriğiniz işlenmektedir.</p>
+                <h4 class="font-semibold text-gray-800 pt-2">İşlenme Amaçları</h4>
+                <p>Verileriniz, iletişime geçmek, taleplerinizi yanıtlamak ve hizmet kalitesini artırmak için işlenir.</p>
+                <h4 class="font-semibold text-gray-800 pt-2">Veri Paylaşımı</h4>
+                <p>Kişisel verileriniz yasal zorunluluklar dışında üçüncü kişilerle paylaşılmaz.</p>
+                <h4 class="font-semibold text-gray-800 pt-2">Haklarınız</h4>
+                <p>KVKK 11. madde uyarınca; verilerinize erişme, düzeltme, silme ve itiraz haklarınızı kullanabilirsiniz. Detaylı bilgi için <a href="mailto:destek@ornekmail.com" class="text-blue-600 hover:underline">akillibalikasistani@gmail.com</a> adresinden iletişime geçebilirsiniz.</p>
+            </div>
+        </div>
+    </div>
+    <div id="kullanim-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 md:p-8 flex flex-col">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-xl font-bold text-gray-800">Kullanım Koşulları</h3>
+                <button id="kullanim-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
+            </div>
+            <div id="kullanim-icerik" class="space-y-3 text-sm text-gray-600 max-h-[70vh] overflow-y-auto pr-4">
+                <p><strong>Son Güncelleme:</strong> 18 Ekim 2025</p>
+                <p>Akıllı Balık Asistanı ("Hizmet") web sitesine hoş geldiniz. Bu hizmeti kullanarak aşağıdaki koşulları kabul etmiş sayılırsınız:</p>
+                
+                <h4 class="font-semibold text-gray-800 pt-2">1. Hizmetin Kapsamı</h4>
+                <p>Bu hizmet, balıkçılık faaliyetleri için hava durumu, coğrafi konum ve balık verilerini analiz ederek tavsiyelerde bulunan bir hobi platformudur. Sunulan bilgiler (puanlar, ipuçları) bir garanti teşkil etmez, sadece tavsiye niteliğindedir.</p>
+
+                <h4 class="font-semibold text-gray-800 pt-2">2. Yasal Sorumluluk</h4>
+                <p>Hizmet, yasal avlanma limitleri, yasaklı dönemler ve türler hakkında bilgilendirme yapmaya çalışsa da, bu bilgilerin güncelliğini %100 garanti etmez. Geçerli tüm yerel ve ulusal balıkçılık tebliğlerine ve yasalarına uymak tamamen kullanıcının sorumluluğundadır. Yasalara aykırı avlanmadan doğacak hiçbir cezai işlemden Hizmet sorumlu tutulamaz.</p>
+
+                <h4 class="font-semibold text-gray-800 pt-2">3. Kullanıcı Verileri</h4>
+                <p>Hizmete üye olarak oluşturduğunuz "Av Kayıt Defteri" verileri (konum, notlar, fotoğraflar) sunucularımızda saklanır. Bu veriler, hizmet kalitesini artırmak amacıyla anonim olarak analiz edilebilir ancak izniniz olmadan üçüncü şahıslarla paylaşılmaz. Detaylar için "Gizlilik Politikamızı" inceleyebilirsiniz.</p>
+
+                <h4 class="font-semibold text-gray-800 pt-2">4. Hizmetin Kullanılabilirliği</h4>
+                <p>Hizmet, dış API'lara (örn: OpenWeatherMap) bağımlıdır. Bu hizmetlerde yaşanacak kesintiler, Akıllı Balık Asistanı'nın da geçici olarak durmasına veya hatalı veri sunmasına neden olabilir. Hizmetin kesintisiz olacağı garanti edilmez.</p>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        window.BALIK_LISTESI_VERISI = {{ balik_listesi | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+</body>
+</html>

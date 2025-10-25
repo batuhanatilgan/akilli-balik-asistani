@@ -1,0 +1,1367 @@
+{
+  "sazan_aynali": {
+    "isim": "Sazan (Aynalı)",
+    "bilimsel_isim": "Cyprinus carpio",
+    "onerilen_teknikler": ["Dip Avı", "Yemli Şamandıra", "Boili Rig"],
+    "tip": "tatli_su",
+    "gorsel_url": "Sazan_(Aynalı).jpg",
+    "min_boy_cm": 40,
+    "yemler": ["Solucan", "Mısır", "Böcek Larvaları", "Özel Sazan Hamurları", "Boili"],
+    "yasam_alani": "Göl ve yavaş akan derelerin dip suları.",
+    "ureme_donemi_aylar": [4, 5, 6, 7],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Sazan sabahın ilk ışıklarında yemlenir. Mısır veya solucan denemek için harika bir vakit!"},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Gün batımı, sazanların aktifleştiği bir diğer kritik saattir. Dip yemlemesi yapın."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "yağmur", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Hafif yağmur suyu bulandırır ve sazanı cesaretlendirir. Tam sırası!"},
+        {"kural_tipi": "ruzgar", "deger": 15, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin ve rüzgarsız hava, sazanın su yüzeyindeki hareketlerini görmek için idealdir."},
+        {"kural_tipi": "sicaklik", "deger": 18, "operator": ">", "puan_etkisi": 1, "ipucu": "Su sıcaklığı arttıkça Sazan'ın metabolizması hızlanır, yemlenme ihtimali yükselir."},
+        {"kural_tipi": "sicaklik", "deger": 10, "operator": "<", "puan_etkisi": -2, "ipucu": "Hava çok soğudu. Sazan pasifleşmiş olabilir, av şansı düşük."}
+    ]
+  },
+  "biyikli_balik": {
+    "isim": "Bıyıklı Balık",
+    "bilimsel_isim": "Barbus barbus",
+    "onerilen_teknikler": ["Dip Avı", "Yemli"],
+    "tip": "tatli_su",
+    "gorsel_url": "Biyikli_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Solucan", "Larva"],
+    "yasam_alani": "Doğu Karadeniz ve Doğu Anadolu'nun kuzeyindeki tatlı sular.",
+    "ureme_donemi_aylar": [4, 5, 6, 7],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akıntılı sularda sabah ve akşam solucan yemine iyi tepki verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akıntılı sularda sabah ve akşam solucan yemine iyi tepki verir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu havalar bu balığı akıntılı sularda daha cesur hale getirir."}
+    ]
+  },
+  "capak": {
+    "isim": "Çapak Balığı",
+    "bilimsel_isim": "Abramis brama",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Hafif Dip Takımı"],
+    "tip": "tatli_su",
+    "gorsel_url": "Capak_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Solucan", "Larva"],
+    "yasam_alani": "Durgun ve yavaş akan sular.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gün içinde sakin sularda küçük yemlerle (larva, solucan) sürüler halinde bulunurlar."}
+    ]
+  },
+  "dag_alabaligi": {
+    "isim": "Dağ Alabalığı",
+    "bilimsel_isim": "Salmo trutta macrostigma",
+    "onerilen_teknikler": ["Spin", "Fly Fishing", "Döner Kaşık"],
+    "tip": "tatli_su",
+    "gorsel_url": "Dag_Alabaligi.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Küçük Döner Kaşıklar", "Böcekler", "Fly (Sinek Yem)"],
+    "yasam_alani": "Soğuk, berrak ve oksijeni bol akarsular.",
+    "ureme_donemi_aylar": [11, 12],
+    "sezon_aylari": [4, 5, 9, 10, 11],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Soğuk ve berrak akarsularda sabah serinliğinde küçük kaşıklarla av verir."},
+        {"kural_tipi": "sicaklik", "deger": 15, "operator": "<", "puan_etkisi": 2, "ipucu": "Hava serin. Alabalık avı için mükemmel sıcaklık!"},
+        {"kural_tipi": "sicaklik", "deger": 20, "operator": ">", "puan_etkisi": -3, "ipucu": "Hava çok sıcak. Alabalık bu sıcaklıkta yemlenmeyi keser, av şansı çok düşük."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, berrak sularda alabalığın ürkekliğini azaltır."}
+    ]
+  },
+  "dere_pisisi": {
+    "isim": "Dere Pisisi",
+    "bilimsel_isim": "Pleuronectes flesus",
+    "onerilen_teknikler": ["Yemli Dip (Hafif Takım)"],
+    "tip": "tatli_su",
+    "gorsel_url": "Dere_Pisisi.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Solucan", "Küçük Kabuklular"],
+    "yasam_alani": "Nehir ağızları, lagünler ve acısu bölgeleri.",
+    "ureme_donemi_aylar": [1, 2, 3, 4],
+    "sezon_aylari": [4, 5, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Nehir ağızlarında sabah saatlerinde dipte solucanla aranmalıdır."}
+    ]
+  },
+  "egrez": {
+    "isim": "Eğrez Balığı",
+    "bilimsel_isim": "Vimba vimba",
+    "onerilen_teknikler": ["Yemli Dip", "Yemli Şamandıra"],
+    "tip": "tatli_su",
+    "gorsel_url": "Egrez_Baligi.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Solucan", "Larva"],
+    "yasam_alani": "Akarsuların dipleri.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+     "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akarsu diplerinde gün ortası larvalarla avlanabilir."}
+    ]
+  },
+  "gokkusagi_alabaligi": {
+    "isim": "Gökkuşağı Alabalığı",
+    "bilimsel_isim": "Oncorhynchus mykiss",
+    "onerilen_teknikler": ["Spin", "Fly Fishing", "Yemli Şamandıra"],
+    "tip": "tatli_su",
+    "gorsel_url": "Gokkusagi_Alabaligi.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Alabalık Hamuru", "Döner Kaşıklar", "Böcekler", "Fly (Sinek Yem)"],
+    "yasam_alani": "Soğuk göl ve akarsular, yetiştiriciliği yapılır.",
+    "ureme_donemi_aylar": [11, 12, 1, 2],
+    "sezon_aylari": [1, 2, 3, 4, 10, 11, 12],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Soğuk sularda parlak kaşıklar ve böceklerle gün ortasında bile aktif olur."},
+        {"kural_tipi": "sicaklik", "deger": 18, "operator": "<", "puan_etkisi": 2, "ipucu": "Hava serin. Gökkuşağı Alabalığı avı için ideal sıcaklık!"},
+        {"kural_tipi": "sicaklik", "deger": 22, "operator": ">", "puan_etkisi": -3, "ipucu": "Hava çok sıcak. Alabalık bu sıcaklıkta pasifleşir, av şansı çok düşük."}
+    ]
+  },
+  "gol_alabaligi": {
+    "isim": "Göl Alabalığı",
+    "bilimsel_isim": "Salmo trutta abanticus",
+    "onerilen_teknikler": ["Spin", "Fly Fishing", "Yemli Şamandıra"],
+    "tip": "tatli_su",
+    "gorsel_url": "Gol_Alabaligi.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Döner Kaşıklar", "Böcekler", "Canlı Yem"],
+    "yasam_alani": "Sadece Abant gölü ve Yedigöller'de bulunur.",
+    "ureme_donemi_aylar": [11, 12],
+    "sezon_aylari": [4, 5, 9, 10, 11],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Abant gibi soğuk göllerde, sabah erken saatlerde canlı yemle yakalanır."},
+        {"kural_tipi": "sicaklik", "deger": 16, "operator": "<", "puan_etkisi": 2, "ipucu": "Hava serin. Göl Alabalığı avı için ideal sıcaklık!"},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, berrak göl sularında alabalığın ürkekliğini azaltır."}
+    ]
+  },
+  "havuz_baligi": {
+    "isim": "Havuz Balığı (Carassius)",
+    "bilimsel_isim": "Carassius carassius",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Hafif Dip Takımı"],
+    "tip": "tatli_su",
+    "gorsel_url": "Havuz_Baligi.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Solucan", "Mısır", "Ekmek"],
+    "yasam_alani": "Durgun ve sığ sular, göletler.",
+    "ureme_donemi_aylar": [5, 6],
+    "sezon_aylari": [4, 5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Göletlerde gün ortasında ekmek veya mısırla kolayca kandırılabilir."}
+    ]
+  },
+  "kadife_baligi": {
+    "isim": "Kadife Balığı (Yeşil Sazan)",
+    "bilimsel_isim": "Tinca tinca",
+    "onerilen_teknikler": ["Dip Avı", "Yemli Şamandıra"],
+    "tip": "tatli_su",
+    "gorsel_url": "Kadife_Baligi.jpg",
+    "min_boy_cm": 26,
+    "yemler": ["Solucan", "Mısır", "Hamur"],
+    "yasam_alani": "Bitki örtüsü yoğun, çamurlu dipli göl ve yavaş akan sular.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [5, 6, 9, 10],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "sicaklik", "deger": 15, "operator": ">", "puan_etkisi": 1, "ipucu": "Sıcak havalarda bitki örtüsü yoğun, çamurlu diplerde yemlenir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sabah erken saatler, bitkilerin arasında solucanla denemek için verimlidir."}
+    ]
+  },
+  "karaburun": {
+    "isim": "Karaburun Balığı",
+    "bilimsel_isim": "Chondrostoma nasus",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Hafif Dip Takımı"],
+    "tip": "tatli_su",
+    "gorsel_url": "Karaburun_Baligi.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Yosun", "Larva"],
+    "yasam_alani": "Hızlı akan nehirlerin çakıllı dipleri.",
+    "ureme_donemi_aylar": [3, 4, 5],
+    "sezon_aylari": [4, 5, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Hızlı akan çakıllı diplerde gün ışığında yem arar."}
+    ]
+  },
+  "kizilgoz": {
+    "isim": "Kızılgöz",
+    "bilimsel_isim": "Rutilus rutilus",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Hafif Dip Takımı"],
+    "tip": "tatli_su",
+    "gorsel_url": "Kizilgoz_Baligi.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Solucan", "Ekmek", "Larva"],
+    "yasam_alani": "Durgun ve yavaş akan sular.",
+    "ureme_donemi_aylar": [5, 6],
+    "sezon_aylari": [4, 5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sakin sularda gün içinde ekmek veya solucanla avı keyiflidir."}
+    ]
+  },
+  "kizilkanat": {
+    "isim": "Kızılkanat",
+    "bilimsel_isim": "Scardinius erythrophthalmus",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Fly Fishing (Yüzey)"],
+    "tip": "tatli_su",
+    "gorsel_url": "Kizilkanat_Baligi.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Solucan", "Mısır", "Ekmek", "Küçük Sineklikler", "Fly (Sinek Yem)"],
+    "yasam_alani": "Durgun ve yavaş akan suların bitkili, sığ bölgeleri.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [4, 5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Bitkili, sığ göllerde sabah erken saatlerde sinek veya solucanla oltaya gelir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, sığ sulardaki kızılkanatı daha az ürkek yapar."}
+    ]
+  },
+  "kocaagiz": {
+    "isim": "Kocaağız (Ak Balık)",
+    "bilimsel_isim": "Aspius aspius",
+    "onerilen_teknikler": ["Spin", "At-Çek", "Yüzey Sahteleri"],
+    "tip": "tatli_su",
+    "gorsel_url": "Kocaagiz_Baligi.jpg",
+    "min_boy_cm": 35,
+    "yemler": ["Canlı Balık", "Döner Kaşıklar", "Maket Balık"],
+    "yasam_alani": "Büyük nehirler ve göller.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [5, 6, 7],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sabah erken saatlerde su yüzeyinde avlanır, döner kaşıklarla denenebilir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gün batımında su yüzeyinde avlanır, döner kaşıklarla denenebilir."}
+    ]
+  },
+  "pullu_sazan": {
+    "isim": "Sazan (Pullu)",
+    "bilimsel_isim": "Cyprinus carpio",
+    "onerilen_teknikler": ["Dip Avı", "Yemli Şamandıra", "Boili Rig"],
+    "tip": "tatli_su",
+    "gorsel_url": "Pullu_Sazan_Baligi.jpg",
+    "min_boy_cm": 40,
+    "yemler": ["Solucan", "Mısır", "Böcek Larvaları", "Özel Sazan Hamurları", "Boili"],
+    "yasam_alani": "Göl ve yavaş akan derelerin dip suları.",
+    "ureme_donemi_aylar": [4, 5, 6, 7],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "ay_evresi", "deger": "Yeni Ay", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Yeni Ay döneminde gece dipte mısırla sazan avı verimli olur."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Geceleri dipte mısır veya hamurla sazan avı verimli olabilir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "yağmur", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Hafif yağmur suyu bulandırır ve sazanı cesaretlendirir. Tam sırası!"},
+        {"kural_tipi": "sicaklik", "deger": 18, "operator": ">", "puan_etkisi": 1, "ipucu": "Su sıcaklığı arttıkça Sazan'ın metabolizması hızlanır, yemlenme ihtimali yükselir."}
+    ]
+  },
+  "sudak": {
+    "isim": "Sudak (Dişli Balık)",
+    "bilimsel_isim": "Stizostedion lucioperca",
+    "onerilen_teknikler": ["Spin", "At-Çek", "Jigging", "Canlı Yem"],
+    "tip": "tatli_su",
+    "gorsel_url": "Sudak_Baligi.jpg",
+    "min_boy_cm": 26,
+    "yemler": ["Canlı Balık", "Silikon Yemler (Jigging)", "Maket Balık"],
+    "yasam_alani": "Büyük göllerin ve yavaş akan nehirlerin derin, bulanık suları.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [4, 5, 9, 10, 11],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Bulanık ve derin sularda silikon yemlerle sabah karanlığında aktifleşir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Gün batımı Sudak'ın avlandığı en verimli saatlerden biridir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, ışığa duyarlı olan Sudak'ın gün içinde de avlanmasını sağlar."},
+        {"kural_tipi": "sicaklik", "deger": 22, "operator": "<", "puan_etkisi": 1, "ipucu": "Serin suları sever. Sıcaklığın düşmesi Sudak'ı hareketlendirir."}
+    ]
+  },
+  "tahta_baligi": {
+    "isim": "Tahta Balığı",
+    "bilimsel_isim": "Blicca bjoerkna",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Hafif Dip Takımı"],
+    "tip": "tatli_su",
+    "gorsel_url": "Tahta_Baligi.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Solucan", "Larva"],
+    "yasam_alani": "Durgun ve yavaş akan sular.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [5, 6, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Çapak avlarken araya girebilir, gün içinde solucanla avlanır."}
+    ]
+  },
+  "tatlisu_kefali": {
+    "isim": "Tatlısu Kefali",
+    "bilimsel_isim": "Leuciscus cephalus",
+    "onerilen_teknikler": ["Yemli Şamandıra", "Spin (Küçük Sahteler)", "Fly Fishing"],
+    "tip": "tatli_su",
+    "gorsel_url": "Tatlisu_Kefali.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Ekmek", "Çekirge", "Küçük Döner Kaşıklar", "Meyveler", "Fly (Sinek Yem)"],
+    "yasam_alani": "Akarsuların sakin ve derin bölgeleri, göller.",
+    "ureme_donemi_aylar": [4, 5, 6, 7],
+    "sezon_aylari": [5, 6, 7, 8],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akarsularda gün içinde ekmek veya sinek taklidi yemlerle yüzeyden avlanabilir."},
+        {"kural_tipi": "sicaklik", "deger": 15, "operator": ">", "puan_etkisi": 1, "ipucu": "Sıcak havalarda su yüzeyine çıkan böcekleri avlar, tam zamanı!"},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin havalarda su yüzeyinde yemlenir, ekmekle denenebilir."}
+    ]
+  },
+  "tatlisu_levregi": {
+    "isim": "Tatlısu Levreği (Perch)",
+    "bilimsel_isim": "Perca fluviatilis",
+    "onerilen_teknikler": ["Spin", "LRF", "Jigging (Hafif)", "Yemli Şamandıra"],
+    "tip": "tatli_su",
+    "gorsel_url": "Tatlisu_Levregi_Baligi.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Solucan", "Küçük Döner Kaşıklar", "Silikon Yemler"],
+    "yasam_alani": "Göller, göletler ve yavaş akan nehirlerin bitkili alanları.",
+    "ureme_donemi_aylar": [3, 4, 5, 6],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Bitkili alanlarda sabah silikon yemlerle hareketli avlar verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Bitkili alanlarda akşamüstü silikon yemlerle hareketli avlar verir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, Perch'in gün boyu aktif kalmasını sağlar."}
+    ]
+  },
+  "turna": {
+    "isim": "Turna",
+    "bilimsel_isim": "Esox lucius",
+    "onerilen_teknikler": ["Spin", "At-Çek", "Canlı Yem", "Fly Fishing (Streamer)"],
+    "tip": "tatli_su",
+    "gorsel_url": "Turna_Baligi.jpg",
+    "min_boy_cm": 40,
+    "yemler": ["Canlı Balık", "Kaşık", "Döner Kaşık (Mepps)", "Maket Balık", "Silikon Yemler"],
+    "yasam_alani": "Durgun veya yavaş akan, bitki örtüsü bol sular, sazlık kenarları.",
+    "ureme_donemi_aylar": [3, 4],
+    "sezon_aylari": [4, 5, 9, 10, 11],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sazlık kenarlarında sabah erken saatlerde maket balıkla turna yakalama şansı yüksektir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Turna, gün batımında sazlık önlerinde son bir av arayışına girer."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 2, "ipucu": "Bulutlu ve kapalı hava, Turna'nın en sevdiği avlanma koşuludur!"},
+        {"kural_tipi": "sicaklik", "deger": 20, "operator": "<", "puan_etkisi": 1, "ipucu": "Serinleyen sular Turna'yı hareketlendirir. Kaşıkla denemek için iyi zaman."},
+        {"kural_tipi": "sicaklik", "deger": 25, "operator": ">", "puan_etkisi": -3, "ipucu": "Hava aşırı sıcak. Turna derin ve serin sulara çekilmiş olabilir, av şansı çok düşük."}
+
+    ]
+  },
+  "yayin": {
+    "isim": "Yayın",
+    "bilimsel_isim": "Silurus glanis",
+    "onerilen_teknikler": ["Ağır Yemli Dip", "Canlı Yem", "Spin (Büyük Sahteler)"],
+    "tip": "tatli_su",
+    "gorsel_url": "Yayin_Baligi.jpg",
+    "min_boy_cm": 90,
+    "yemler": ["Canlı Balık", "Sülük", "Tavuk Ciğeri", "Solucan Demeti", "Büyük Silikon Yemler"],
+    "yasam_alani": "Büyük nehirlerin ve göllerin çamurlu dipleri.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [5, 6, 7, 8],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Geceleri çamurlu diplerde tavuk ciğeri veya solucan demetiyle yayın avı etkilidir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "yağmur", "operator": "icerir", "puan_etkisi": 2, "ipucu": "Yağmurlu ve bulanık su, Yayın'ın avlanması için mükemmel koşullardır!"},
+        {"kural_tipi": "sicaklik", "deger": 20, "operator": ">", "puan_etkisi": 1, "ipucu": "Sıcak geceler Yayın balığının en aktif olduğu zamanlardır."},
+        {"kural_tipi": "ay_evresi", "deger": "Yeni Ay", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Karanlık, Yeni Ay geceleri Yayın avı için idealdir."}
+    ]
+  },
+  "yilan_baligi": {
+    "isim": "Yılan Balığı",
+    "bilimsel_isim": "Anguilla anguilla",
+    "onerilen_teknikler": ["Yemli Dip"],
+    "tip": "tatli_su",
+    "gorsel_url": "Yilan_Baligi.jpg",
+    "min_boy_cm": 50,
+    "yemler": ["Solucan", "Küçük Balık"],
+    "yasam_alani": "Tatlı sular, lagünler, göller.",
+    "ureme_donemi_aylar": [],
+    "sezon_aylari": [6, 7, 8, 9],
+    "bolgeler": ["tatlisu_genel"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Geceleri sığ göllerde solucanla oltaya gelen gizemli bir dip balığıdır."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "yağmur", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Yağmurlu ve nemli gecelerde karaya bile çıktıkları söylenir, av için ideal."}
+    ]
+  },
+  "akya": {
+    "isim": "Akya (Kuzu)",
+    "bilimsel_isim": "Lichia amia",
+    "onerilen_teknikler": ["Sırtı (Canlı Yem)", "Spin (Yüzey Sahteleri)", "Jigging"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Akya_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Canlı Zargana", "Canlı Kefal", "Sırtı (Büyük Rapala)", "Jig"],
+    "yasam_alani": "Kıyıya yakın derin ve akıntılı sularda avlanır.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8],
+    "sezon_aylari": [7, 8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akıntılı ve derin sularda canlı kefalle sabah erken saatlerde akya yakalanabilir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam saatlerinde akıntılı burunlarda canlı yemle Akya arayabilirsiniz."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": ">", "puan_etkisi": 1, "ipucu": "Hafif rüzgar ve akıntı, Akya'nın sevdiği koşullardır."}
+    ]
+  },
+  "barbunya": {
+    "isim": "Barbunya",
+    "bilimsel_isim": "Mullus barbatus",
+    "onerilen_teknikler": ["Yemli Dip (Hafif Takım)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Barbunya_Balik.jpg",
+    "min_boy_cm": 13,
+    "yemler": ["Karides", "Teke", "Borukurdu"],
+    "yasam_alani": "Kumluk ve çamurlu zeminlerde, bıyıklarıyla yem arar.",
+    "ureme_donemi_aylar": [5, 6, 7, 8],
+    "sezon_aylari": [9, 10, 11],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk ve çamurlu zeminlerde gün ışığında karidesle avı verimlidir."},
+        {"kural_tipi": "ruzgar", "deger": 15, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin havalarda kumluk alanlarda dipte yemlenir."}
+    ]
+  },
+  "caca": {
+    "isim": "Çaça (Papalina)",
+    "bilimsel_isim": "Sprattus sprattus",
+    "onerilen_teknikler": ["Çapari"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Caca_Balik.jpg",
+    "min_boy_cm": 9,
+    "yemler": ["Plankton", "Çapari"],
+    "yasam_alani": "Sürüler halinde yaşar, yem balığıdır.",
+    "ureme_donemi_aylar": [5, 6],
+    "sezon_aylari": [1, 2, 3, 11, 12],
+    "bolgeler": ["karadeniz", "marmara"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sürü halinde dolaşır, sabah erken saatlerde plankton bolluğunda yüzeye çıkar."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sürü halinde dolaşır, akşam saatlerinde plankton bolluğunda yüzeye çıkar."}
+    ]
+  },
+  "cipura": {
+    "isim": "Çipura (Alyanak)",
+    "bilimsel_isim": "Sparus aurata",
+    "onerilen_teknikler": ["Yemli Dip", "Surf Casting"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Cipura_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Yengeç", "Mamid", "Sülünes", "Karides"],
+    "yasam_alani": "Kıyıya yakın kumluk ve çakıllı zeminler.",
+    "ureme_donemi_aylar": [10, 11, 12, 1, 2],
+    "sezon_aylari": [9, 10, 4, 5],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk zeminlerde sabah erken saatlerde karides veya yengeç yemine gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam saatlerinde sığlıklara yemlenmeye girer. Yengeç en iyi yemidir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": ">", "puan_etkisi": 1, "ipucu": "Hafif dalgalı deniz, Çipura'nın ürkekliğini alır ve yeme vurmasını kolaylaştırır."}
+    ]
+  },
+  "dikenli_oksuz": {
+    "isim": "Dikenli Öksüz",
+    "bilimsel_isim": "Peristedion cataphractum",
+    "onerilen_teknikler": ["Derin Su Dip Avı"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Dikenli_Oksuz_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Derin su yemleri"],
+    "yasam_alani": "Derin suların diplerinde yaşar.",
+    "ureme_donemi_aylar": [3, 4, 5],
+    "sezon_aylari": [4, 5, 6],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin diplerde gece avlanmak isteyenler için nadir ama değerli bir hedeftir."}
+    ]
+  },
+  "dulger": {
+    "isim": "Dülger (Peygamber Balığı)",
+    "bilimsel_isim": "Zeus Faber",
+    "onerilen_teknikler": ["Yemli Dip (Derin Su)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Dulger_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Küçük Balıklar", "Karides"],
+    "yasam_alani": "Genellikle 60-70 metre derinliklerde yaşar.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [3, 4, 5],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin sularda sabah erken saatlerde küçük balık yemleriyle av verir."}
+    ]
+  },
+  "eskina": {
+    "isim": "Eşkina (Taş Balığı)",
+    "bilimsel_isim": "Sciaena umbra",
+    "onerilen_teknikler": ["Yemli Dip (Kayalık)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Eskina_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Karides", "Borukurdu", "Yengeç"],
+    "yasam_alani": "Kayalık ve mağaralı bölgeleri, batıkları sever.",
+    "ureme_donemi_aylar": [3, 4, 5, 6, 7, 8],
+    "sezon_aylari": [7, 8, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Kayalık bölgelerde gece karides veya yengeç yemine iyi tepki verir."},
+        {"kural_tipi": "ay_evresi", "deger": "Dolunay", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Dolunay ışığında kayalık bölgelerde Eşkina avı çok verimli geçer."}
+    ]
+  },
+  "fangri": {
+    "isim": "Fangri Mercan",
+    "bilimsel_isim": "Pagrus pagrus",
+    "onerilen_teknikler": ["Yemli Dip (Derin Su)", "Jigging"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Fangri_Mercan_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Kabuklular", "Yumuşakçalar", "Küçük Balıklar", "Jig"],
+    "yasam_alani": "Taşlık ve kayalıkların mağaralı oyuklarında yaşar.",
+    "ureme_donemi_aylar": [8, 9, 10],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık bölgelerde sabah erken saatlerde dip sırtısıyla avlanabilir."}
+    ]
+  },
+  "fener": {
+    "isim": "Fener Balığı",
+    "bilimsel_isim": "Lophius piscatorius",
+    "onerilen_teknikler": ["Derin Su Dip Avı"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Fener_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Küçük Balıklar", "Balık Parçası"],
+    "yasam_alani": "Derin sularda, fenerini olta olarak kullanarak avlanır.",
+    "ureme_donemi_aylar": [2, 3, 4, 5, 6, 7],
+    "sezon_aylari": [2, 3, 4, 11, 12],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin sularda fenerini kullanarak küçük balıkları çeker, gece avları idealdir."}
+    ]
+  },
+  "gelincik": {
+    "isim": "Gelincik Balığı",
+    "bilimsel_isim": "Gaidropsarus mediterraneus",
+    "onerilen_teknikler": ["LRF", "Hafif Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Gelincik_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Balık Yavruları", "Kabuklular", "Karides"],
+    "yasam_alani": "Sıcak ve ılıman suların taşlık, kayalık dipleri.",
+    "ureme_donemi_aylar": [9, 10, 11, 12, 1, 2, 3, 4],
+    "sezon_aylari": [1, 2, 3, 12],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sıcak taşlık diplerde sabah erken saatlerde küçük kabuklularla oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, taş altlarında yem arar."}
+    ]
+  },
+  "gumus": {
+    "isim": "Gümüş Balığı",
+    "bilimsel_isim": "Atherina hepsetus",
+    "onerilen_teknikler": ["Çapari", "Hafif Şamandıralı Takım"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Gumus_Balik.jpg",
+    "min_boy_cm": null,
+    "yemler": ["Plankton", "Çapari", "Ekmek"],
+    "yasam_alani": "Sığ sahil suları, yem balığıdır.",
+    "ureme_donemi_aylar": [4, 5, 6, 7],
+    "sezon_aylari": [4, 5, 6, 7],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sığ sahil sularında plankton bolluğunda sabahları yüzeye çıkar."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sığ sahil sularında plankton bolluğunda akşamları yüzeye çıkar."}
+    ]
+  },
+  "hamsi": {
+    "isim": "Hamsi",
+    "bilimsel_isim": "Engraulis encrasicolus",
+    "onerilen_teknikler": ["Çapari"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Hamsi_Balik.jpg",
+    "min_boy_cm": 9,
+    "yemler": ["Hamsi Çaparisi"],
+    "yasam_alani": "Özellikle Karadeniz'de devasa sürüler halinde yaşar.",
+    "ureme_donemi_aylar": [5, 6, 7, 8, 9],
+    "sezon_aylari": [11, 12, 1, 2],
+    "bolgeler": ["karadeniz", "marmara"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Soğuyan denizlerde sabah erken saatlerde devasa sürüler halinde kıyıya yaklaşır."},
+        {"kural_tipi": "sicaklik", "deger": 15, "operator": "<", "puan_etkisi": 2, "ipucu": "Sular soğudu! Hamsi avı için mükemmel zaman."}
+    ]
+  },
+  "iskarmoz": {
+    "isim": "Iskarmoz (Barakuda)",
+    "bilimsel_isim": "Sphyraena sphyraena",
+    "onerilen_teknikler": ["Sırtı", "Spin", "At-Çek"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Iskarmoz_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Küçük Balıklar", "Sırtı (Rapala)", "Maket Balık"],
+    "yasam_alani": "Sıcak ve ılık denizlerin sığ suları.",
+    "ureme_donemi_aylar": [5, 6, 7, 8],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sıcak denizlerin sığ sularında akşamüstü küçük balıkları kovalar."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sıcak denizlerin sığ sularında sabah erken saatlerde küçük balıkları kovalar."}
+    ]
+  },
+  "iskorpit": {
+    "isim": "İskorpit (Çorba Balığı)",
+    "bilimsel_isim": "Scorpaena porcus",
+    "onerilen_teknikler": ["LRF", "Hafif Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Iskorpit_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Balık Parçası", "Silikon Yem"],
+    "yasam_alani": "Kayalık ve yosunlu diplerde kamufle olarak yaşar. Dikenleri zehirlidir.",
+    "ureme_donemi_aylar": [6, 7, 8, 9],
+    "sezon_aylari": [3, 4, 5, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık diplerde sabah karides yemine gizlendiği yerden saldırabilir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece avlarında kayalık diplerde karidese sıkça rastlar. Dikenlere dikkat!"}
+    ]
+  },
+  "ispari": {
+    "isim": "İspari",
+    "bilimsel_isim": "Diplodus annularis",
+    "onerilen_teknikler": ["Yemli Dip", "Şamandıralı Yemli"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Ispari_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Solucan"],
+    "yasam_alani": "Deniz çayırlarının olduğu ortamlar.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Deniz çayırlarının arasında sabah solucan veya karidesle oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam saatlerinde çayırlık alanlarda karidesle avı keyiflidir."}
+    ]
+  },
+  "istavrit": {
+    "isim": "İstavrit",
+    "bilimsel_isim": "Trachurus trachurus",
+    "onerilen_teknikler": ["Çapari", "LRF", "Hafif Şamandıralı Takım"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Istavrit_Balik.jpg",
+    "min_boy_cm": 13,
+    "yemler": ["Çapari", "Karides", "Küçük Gümüş Balığı", "Silikon Yem"],
+    "yasam_alani": "Kıyısal bölgeler, limanlar ve iskele çevreleri.",
+    "ureme_donemi_aylar": [3, 4, 5, 6, 7],
+    "sezon_aylari": [3, 4, 5, 6, 7, 8, 9],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Liman çevrelerinde sabah ve akşam çapariyle bolca yakalanabilir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Liman çevrelerinde sabah ve akşam çapariyle bolca yakalanabilir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Bulutlu hava, istavritin gün içinde de kıyıda kalmasını sağlar."}
+    ]
+  },
+  "izmarit": {
+    "isim": "İzmarit",
+    "bilimsel_isim": "Spicara maena",
+    "onerilen_teknikler": ["Yemli Dip", "Şamandıralı Yemli"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Izmarit_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Midye"],
+    "yasam_alani": "Çamurlu veya sert yapılı zeminlerde sürüler halinde yaşar.",
+    "ureme_donemi_aylar": [9, 10, 11],
+    "sezon_aylari": [3, 4, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Çamurlu zeminlerde akşam saatlerinde midye yemine iyi tepki verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sabah saatlerinde midye veya karidesle avlanabilir."}
+    ]
+  },
+  "kalkan": {
+    "isim": "Kalkan",
+    "bilimsel_isim": "Psetta maxima",
+    "onerilen_teknikler": ["Yemli Dip (Zoka)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kalkan_Balik.jpg",
+    "min_boy_cm": 45,
+    "yemler": ["Canlı Balık (İstavrit, Gümüş)", "Zoka Takımı"],
+    "yasam_alani": "Kumluk ve çamurlu deniz diplerinde yatarak avlanır.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [2, 3, 4],
+    "bolgeler": ["karadeniz", "marmara"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk diplerde sabah erken saatlerde istavritle dibe yakın av verir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "bulutlu", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Kapalı havalar Kalkan'ın dipte daha aktif olmasını sağlar."}
+    ]
+  },
+  "karagoz": {
+    "isim": "Karagöz",
+    "bilimsel_isim": "Diplodus vulgaris",
+    "onerilen_teknikler": ["Yemli Dip", "Şamandıralı Yemli"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Karagoz_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Midye", "Sülünes", "Karides", "Yengeç"],
+    "yasam_alani": "Kayalık ve yosunlu bölgeler, iskele ayakları.",
+    "ureme_donemi_aylar": [12, 1, 2, 3],
+    "sezon_aylari": [9, 10, 11, 12],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık ve yosunlu bölgelerde sabah midye yemine iyi gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece avında, özellikle midye veya sülünesle verimli av verir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": ">", "puan_etkisi": 1, "ipucu": "Dalgalı ve köpüklü su, karagözün yemlenmesi için idealdir."}
+    ]
+  },
+  "kayis_baligi": {
+    "isim": "Kayış Balığı",
+    "bilimsel_isim": "Ophidion barbatum",
+    "onerilen_teknikler": ["Yemli Dip (Hafif Takım)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kayis_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Yumuşakçalar", "Kabuklular", "Karides"],
+    "yasam_alani": "Üstü bitkilerle örtülü kumsal, çakıllı dipler.",
+    "ureme_donemi_aylar": [5, 6, 7, 8],
+    "sezon_aylari": [5, 6, 7],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Çakıllı diplerde akşam kabuklularla avlanmak en etkilisidir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, kumun içinde gizlendiği yerden çıkarak avlanır."}
+    ]
+  },
+  "kefal": {
+    "isim": "Kefal (Deniz)",
+    "bilimsel_isim": "Mugil cephalus",
+    "onerilen_teknikler": ["Yemli Şamandıra (Ekmek)", "Fly Fishing (Yosun Taklidi)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kefal_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Ekmek", "Hamur", "Yosun"],
+    "yasam_alani": "Limanlar, nehir ağızları ve sığ kıyı bölgeleri.",
+    "ureme_donemi_aylar": [6, 7, 8, 9],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Liman ağızlarında sabah erken saatlerde ekmekle oltaya gelir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin ve çarşaf gibi deniz, kefalin yüzeyden ekmek toplamasını izlemek için idealdir."}
+    ]
+  },
+  "kilic": {
+    "isim": "Kılıç Balığı",
+    "bilimsel_isim": "Xiphias gladius",
+    "onerilen_teknikler": ["Sırtı (Ağır Takım)", "Derin Bırakma (Drift)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kilic_Balik.jpg",
+    "min_boy_cm": 125,
+    "yemler": ["Sırtı", "Canlı Yem (Kalamar, Balık)"],
+    "yasam_alani": "Açık denizlerin ve okyanusların sıcak ve ılıman bölgeleri.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8, 9],
+    "sezon_aylari": [8, 9],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde gece yüzeye çıkan kılıç balığı sırtı yemlerine gelir."}
+    ]
+  },
+  "kirlangic": {
+    "isim": "Kırlangıç",
+    "bilimsel_isim": "Chelidonichthys lucerna",
+    "onerilen_teknikler": ["Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kirlangic_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Karides", "Balık Parçası"],
+    "yasam_alani": "Kumlu ve çamurlu diplerde yaşar.",
+    "ureme_donemi_aylar": [12, 1, 2, 3],
+    "sezon_aylari": [2, 3, 4, 12],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk diplerde sabah karides yemine iyi tepki verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk diplerde gün içinde karides yemine iyi tepki verir."}
+    ]
+  },
+  "kolyoz": {
+    "isim": "Kolyoz",
+    "bilimsel_isim": "Scomber japonicus",
+    "onerilen_teknikler": ["Çapari", "Kaşık At-Çek"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kolyoz_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Çapari", "Küçük Balıklar", "Kaşık"],
+    "yasam_alani": "Bütün denizlerimizde bulunur, uskumruya benzer.",
+    "ureme_donemi_aylar": [6, 7, 8],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde sürü halinde gezer, çapariyle sabah saatlerinde yakalanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde sürü halinde gezer, çapariyle akşam saatlerinde yakalanır."}
+    ]
+  },
+  "komurcu": {
+    "isim": "Kömürcü Balığı (Kaya Balığı)",
+    "bilimsel_isim": "Gobius niger",
+    "onerilen_teknikler": ["LRF", "Hafif Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Komurcu_Balik.jpg",
+    "min_boy_cm": 12,
+    "yemler": ["Karides", "Solucan", "Silikon Yem"],
+    "yasam_alani": "Ilıman ve sıcak denizlerin kıyı bölgelerinde dipte yaşar.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8, 9],
+    "sezon_aylari": [5, 6, 7],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kıyı bölgelerinde gün içinde küçük karides parçalarına atlar."}
+    ]
+  },
+  "kupes": {
+    "isim": "Kupes",
+    "bilimsel_isim": "Boops boops",
+    "onerilen_teknikler": ["Şamandıralı Yemli", "Çapari"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Kupes_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Ekmek", "Çapari"],
+    "yasam_alani": "Kıyıya yakın kayalık ve yosunlu alanlar.",
+    "ureme_donemi_aylar": [2, 3, 4, 5],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık kıyılarda sabah erken saatlerde karidesle oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık kıyılarda akşam saatlerinde karidesle oltaya gelir."}
+    ]
+  },
+  "lahoz": {
+    "isim": "Lahoz (Grida)",
+    "bilimsel_isim": "Epinephelus aeneus",
+    "onerilen_teknikler": ["Jigging", "Sırtı (Canlı Yem)", "Ağır Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Lahoz_Balik.jpg",
+    "min_boy_cm": 45,
+    "yemler": ["Canlı Balık", "Kalamar", "Jig"],
+    "yasam_alani": "Akdeniz ve Ege'nin kayalık diplerinde yaşar.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [9, 10, 11],
+    "bolgeler": ["ege", "akdeniz"],
+    "yasal_uyari":"DİKKAT: Lahoz (Grida) balığının avcılığı, 1 Eylül 2024 - 31 Ağustos 2028 tarihleri arasında Türkiye sularında tamamen YASAKLANMIŞTIR.",
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık diplerde sabah kalamar veya canlı balıkla avlanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık diplerde akşam kalamar veya canlı balıkla avlanır."}
+    ]
+  },
+  "lapin": {
+    "isim": "Lapin",
+    "bilimsel_isim": "Labrus mixtus",
+    "onerilen_teknikler": ["LRF", "Hafif Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Lapin_Balik.jpg",
+    "min_boy_cm": null,
+    "yemler": ["Karides", "Solucan"],
+    "yasam_alani": "Kayalık ve yosunlu sığ sular.",
+    "ureme_donemi_aylar": [3, 4, 5, 6],
+    "sezon_aylari": [5, 6, 7, 8],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Yosunlu sığ suların sakin sabahlarında solucanla yakalanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Yosunlu sığ suların sakin günlerinde solucanla yakalanır."}
+    ]
+  },
+  "levrek_deniz": {
+    "isim": "Levrek (Deniz)",
+    "bilimsel_isim": "Dicentrarchus labrax",
+    "onerilen_teknikler": ["Spin", "At-Çek", "LRF", "Yemli Dip", "Surf Casting"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Levrek_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Karides", "Canlı Balık", "Sülünes", "Yapay Silikon Yemler", "Maket Balık"],
+    "yasam_alani": "Kıyıya yakın kayalık, eriştelik ve dalgalı alanlar.",
+    "ureme_donemi_aylar": [1, 2, 3],
+    "sezon_aylari": [10, 11, 12, 1, 2],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "ruzgar", "deger": 15, "operator": ">", "puan_etkisi": 2, "ipucu": "Deniz patladı! Rüzgarlı ve dalgalı kıyılar Levrek avı için en iyi zamandır!"}, 
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Gün batımı ve rüzgarlı hava, levreğin kıyıya en çok yaklaştığı andır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Günün ilk ışıkları, dalgalı kıyılarda silikon yemlerle levrek aramak için idealdir."},
+        {"kural_tipi": "hava_aciklamasi", "deger": "yağmur", "operator": "icerir", "puan_etkisi": 1, "ipucu": "Yağmur, suyu bulandırır ve levreği cesaretlendirir. At-çek için harika koşullar."},
+        {"kural_tipi": "sicaklik", "operator": "between", "deger": [12, 18], "puan_etkisi": 1, "ipucu": "Sıcaklık levreğin sevdiği aralıkta (12-18°C)."},
+        {"kural_tipi": "ruzgar_yonu", "operator": "esittir", "deger": "G", "puan_etkisi": 1, "ipucu": "Lodos (Güney) rüzgarı kıyıları karıştırır, levrek avı için idealdir!"},
+        {"kural_tipi": "gelgit", "deger": "yukselen", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Gelgit yükseliyor! Yem balıkları kıyıya yaklaşıyor, Levrek avı için harika zaman."},
+        {"kural_tipi": "gelgit", "deger": "durgun", "operator": "esittir", "puan_etkisi": -1, "ipucu": "Gelgit durgun. Levrek hareketli ve akıntılı suları tercih eder."}
+    ]
+  },
+  "lipsoz": {
+    "isim": "Lipsoz",
+    "bilimsel_isim": "Scorpaena scrofa",
+    "onerilen_teknikler": ["Yemli Dip", "LRF"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Lipsoz_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Balık Parçası", "Silikon Yem"],
+    "yasam_alani": "Kayalık ve çakıllı diplerde yaşar, iskorpitin büyüğüdür. Dikenleri zehirlidir.",
+    "ureme_donemi_aylar": [6, 7, 8, 9],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık diplerde sabah karides veya balık parçası yemine saldırır."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece avlarında kayalık diplerde karidese sıkça rastlar. Dikenlere dikkat!"}
+    ]
+  },
+  "lufer": {
+    "isim": "Lüfer (Kofana)",
+    "bilimsel_isim": "Pomatomus saltator",
+    "onerilen_teknikler": ["Spin", "At-Çek", "Sırtı", "Yemli (Canlı/Yaprak)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Lufer_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Canlı İstavrit", "Zargana", "Maket Balık (Rapala)", "Yaprak Yem", "Kaşık"],
+    "yasam_alani": "Akıntılı boğazlar, körfezler ve açık deniz.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [9, 10, 11, 12],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "ay_evresi", "deger": "Dolunay", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Akıntılı bölgelerde dolunay gecelerinde lüfer avı efsanedir!"},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, akıntılı boğazlarda yemli veya maket balıkla lüfer arayın."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sabahın ilk ışıkları, lüferin yem balığı sürülerine saldırdığı 'suyun kaynadığı' anlardır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam suyu, lüferin kıyıladığı en verimli saatlerden biridir."},
+        {"kural_tipi": "gelgit", "deger": "yukselen", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Su yükseliyor. Hareketli su, Lüfer'in avlanmasını tetikler."},
+        {"kural_tipi": "gelgit", "deger": "alcalan", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Su alçalıyor. Akıntının olduğu bu anlar Lüfer'i hareketlendirir."}
+    ]
+  },
+  "mazak": {
+    "isim": "Mazak",
+    "bilimsel_isim": "Chelidonichthys lastoviza",
+    "onerilen_teknikler": ["Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Mazak_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Karides"],
+    "yasam_alani": "Kumlu, çamurlu ve kayalık diplerde yaşar. Kırlangıç türüdür.",
+    "ureme_donemi_aylar": [6, 7, 8],
+    "sezon_aylari": [7, 8, 9],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kırlangıç gibi, gün içinde kumluk diplerde karidesle avlanabilir."}
+    ]
+  },
+  "melanurya": {
+    "isim": "Melanurya",
+    "bilimsel_isim": "Oblada melanura",
+    "onerilen_teknikler": ["Şamandıralı Yemli", "LRF"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Melanurya_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Karides", "Ekmek", "Silikon Yem"],
+    "yasam_alani": "Kıyıya yakın kayalık ve yosunlu alanlar.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık kıyılarda sabah erken saatlerde karidesle oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam saatlerinde kayalık kıyılarda ekmek veya karidesle avlanabilir."}
+    ]
+  },
+  "mercan": {
+    "isim": "Mercan (Kırma)",
+    "bilimsel_isim": "Pagellus erythrinus",
+    "onerilen_teknikler": ["Yemli Dip", "Tekneden Bırakma"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Mercan_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Sülünes", "Mamid", "Borukurdu"],
+    "yasam_alani": "Çamurlu, kumlu ve taşlı bölgelerde yaşar.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8],
+    "sezon_aylari": [5, 6, 9, 10],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumlu zeminlerde sabah erken saatlerde karides yemine iyi tepki verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumlu zeminlerde akşam saatlerinde karides yemine iyi tepki verir."}
+    ]
+  },
+  "mezgit": {
+    "isim": "Mezgit (Tavuk Balığı)",
+    "bilimsel_isim": "Merlangius merlangius",
+    "onerilen_teknikler": ["Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Mezgit_Balik.jpg",
+    "min_boy_cm": 13,
+    "yemler": ["Karides", "Borukurdu", "Tavuk Eti"],
+    "yasam_alani": "Genellikle çamurlu ve kumlu diplerde yaşar.",
+    "ureme_donemi_aylar": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "sezon_aylari": [11, 12, 1, 2, 3],
+    "bolgeler": ["karadeniz", "marmara"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, soğuk sularda dipten karides veya borukurdu ile avlanır."},
+        {"kural_tipi": "sicaklik", "deger": 15, "operator": "<", "puan_etkisi": 1, "ipucu": "Soğuk suları sever. Kış aylarında avı çok bereketli geçer."}
+    ]
+  },
+  "migri": {
+    "isim": "Mığrı (Deniz Yılan Balığı)",
+    "bilimsel_isim": "Conger conger",
+    "onerilen_teknikler": ["Ağır Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Migri_Balik.jpg",
+    "min_boy_cm": 60,
+    "yemler": ["Balık Parçası", "Kalamar"],
+    "yasam_alani": "Kayalıkların oyuklarında ve batıklarda yaşar.",
+    "ureme_donemi_aylar": [8, 9, 10, 11],
+    "sezon_aylari": [7, 8, 9],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Gece kayalık oyuklarda balık parçası veya kalamarla oltaya gelir."},
+        {"kural_tipi": "ay_evresi", "deger": "Yeni Ay", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Karanlık Yeni Ay geceleri Mığrı'nın yuvasından çıkıp avlanması için idealdir."}
+    ]
+  },
+  "mirlan": {
+    "isim": "Mırlan (Berlam)",
+    "bilimsel_isim": "Merluccius merluccius",
+    "onerilen_teknikler": ["Yemli Dip (Derin Su)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Mirlan_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Karides", "Küçük Balıklar"],
+    "yasam_alani": "Derin suların çamurlu ve kumlu dipleri.",
+    "ureme_donemi_aylar": [1, 2, 3, 4, 5, 6],
+    "sezon_aylari": [3, 4, 5],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin sularda sabah erken saatlerde küçük balık yemine iyi tepki verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin sularda gece yemlenir."}
+    ]
+  },
+  "mirmir": {
+    "isim": "Mırmır",
+    "bilimsel_isim": "Lithognathus mormyrus",
+    "onerilen_teknikler": ["Yemli Dip", "Surf Casting"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Mirmir_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Borukurdu", "Mamid", "Sülünes"],
+    "yasam_alani": "Kumluk ve çamurlu sığ sular, plajlar.",
+    "ureme_donemi_aylar": [6, 7, 8, 9, 10],
+    "sezon_aylari": [6, 7, 8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk sığ sularda sabah borukurdu ile oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, kumluk plajlarda borukurdu veya mamidle avı çok verimlidir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin deniz, Mırmır'ın sığ kumluklarda yemlenmesi için idealdir."}
+    ]
+  },
+  "minekop": {
+    "isim": "Minekop (Kötek)",
+    "bilimsel_isim": "Umbrina cirrosa",
+    "onerilen_teknikler": ["Yemli Dip", "Surf Casting"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Minekop_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Borukurdu", "Sülünes", "Karides"],
+    "yasam_alani": "Kumlu ve kayalık zeminlerde, 100 metreye kadar derinliklerde bulunur.",
+    "ureme_donemi_aylar": [6, 7],
+    "sezon_aylari": [9, 10, 11],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumlu zeminlerde gece borukurdu veya karides yemine gelir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": ">", "puan_etkisi": 1, "ipucu": "Hafif dalgalı ve bulanık su, Minekop'un avlanmasını kolaylaştırır."}
+    ]
+  },
+  "orfoz": {
+    "isim": "Orfoz",
+    "bilimsel_isim": "Epinephelus marginatus",
+    "onerilen_teknikler": ["Jigging", "Ağır Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Orfoz_Balik.jpg",
+    "min_boy_cm": 45,
+    "yemler": ["Canlı Balık", "Ahtapot", "Kalamar", "Jig"],
+    "yasam_alani": "Kayalık bölgelerde ve mağaralarda yaşar, yerleşik bir balıktır.",
+    "ureme_donemi_aylar": [6, 7, 8],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık mağaralarda sabah erken saatlerde canlı balıkla yakalanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık mağaralarda akşam saatlerinde canlı balıkla yakalanır."}
+    ]
+  },
+  "orkinos": {
+    "isim": "Orkinos (Ton Balığı)",
+    "bilimsel_isim": "Thunnus thynnus",
+    "onerilen_teknikler": ["Sırtı (Ağır Takım)", "Popping", "Jigging"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Orkinos_Balik.jpg",
+    "min_boy_cm": 115,
+    "yemler": ["Sırtı", "Canlı Yem", "Popper", "Jig"],
+    "yasam_alani": "Açık denizlerde göç eden büyük bir avcıdır.",
+    "ureme_donemi_aylar": [5, 6, 7, 8],
+    "sezon_aylari": [5, 6, 7, 8, 9],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde göç zamanlarında sabah sırtı yemlerine gelir."}
+    ]
+  },
+  "palamut": {
+    "isim": "Palamut",
+    "bilimsel_isim": "Sarda sarda",
+    "onerilen_teknikler": ["Çapari", "Sırtı", "Spin (Kaşık)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Palamut_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Çapari", "Kaşık", "Sırtı (Rapala)"],
+    "yasam_alani": "Açık denizlerde sürü halinde gezer, mevsimsel göç yapar.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [8, 9, 10, 11],
+    "bolgeler": ["karadeniz", "marmara", "ege"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Açık denizde sürüyle gezen palamut sabah çapariyle bolca yakalanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Akşam saatlerinde palamut sürüsü kıyıya yaklaşabilir, çapari hazır olsun!"}
+    ]
+  },
+  "papagan": {
+    "isim": "Papağan Balığı (İskaroz)",
+    "bilimsel_isim": "Sparisoma cretense",
+    "onerilen_teknikler": ["Hafif Yemli Dip", "LRF"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Papagan_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Karides"],
+    "yasam_alani": "Sığ, kayalık ve bol bitkili kesimler.",
+    "ureme_donemi_aylar": [7, 8, 9, 10],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Bitkili sığ kayalık alanlarda sabah karides yemine ilgi gösterir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Bitkili sığ kayalık alanlarda gün içinde karides yemine ilgi gösterir."}
+    ]
+  },
+  "pisi": {
+    "isim": "Pisi Balığı",
+    "bilimsel_isim": "Pleuronectes platessa",
+    "onerilen_teknikler": ["Yemli Dip (Hafif Takım)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Pisi_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Solucan", "Karides"],
+    "yasam_alani": "Kumlu deniz tabanlarında yaşar.",
+    "ureme_donemi_aylar": [11, 12, 1, 2],
+    "sezon_aylari": [2, 3, 4],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk deniz tabanında sabah solucanla oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk deniz tabanında gün içinde solucanla oltaya gelir."}
+    ]
+  },
+  "sardalya": {
+    "isim": "Sardalya",
+    "bilimsel_isim": "Sardina pilchardus",
+    "onerilen_teknikler": ["Çapari", "Şamandıralı Takım (Ekmek)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Sardalya_Balik.jpg",
+    "min_boy_cm": 11,
+    "yemler": ["Sardalya Çaparisi", "Ekmek"],
+    "yasam_alani": "Kıyıya yakın bölgelerde büyük sürüler halinde bulunur.",
+    "ureme_donemi_aylar": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    "sezon_aylari": [7, 8, 9],
+    "bolgeler": ["marmara", "ege"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sıcak aylarda sabah erken saatlerde büyük sürüler halinde kıyıya yaklaşır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Sıcak aylarda akşam saatlerinde büyük sürüler halinde kıyıya yaklaşır."}
+    ]
+  },
+  "sari_kuyruk": {
+    "isim": "Sarıkuyruk (Avcı)",
+    "bilimsel_isim": "Seriola dumerili",
+    "onerilen_teknikler": ["Jigging", "Sırtı (Canlı Yem)", "Popping"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Sari_Kuyruk_Balik.jpg",
+    "min_boy_cm": 30,
+    "yemler": ["Canlı Yem", "Jig", "Popper"],
+    "yasam_alani": "Kayalık ve açık denizlerde avlanır. Akya ile karıştırılır.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8, 9],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık açık denizlerde sabah canlı yemle avlanmak en etkilisidir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık açık denizlerde akşam canlı yemle avlanmak en etkilisidir."}
+    ]
+  },
+  "sariagiz": {
+    "isim": "Sarıağız (Halili)",
+    "bilimsel_isim": "Argyrosomus regius",
+    "onerilen_teknikler": ["Yemli Dip", "Surf Casting", "Canlı Yem"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Sariagiz_Balik.jpg",
+    "min_boy_cm": 25,
+    "yemler": ["Canlı Yem", "Karides", "Sülünes", "Borukurdu"],
+    "yasam_alani": "Derin sahil sularında, dip ve dibe yakın ortamlarda yaşar.",
+    "ureme_donemi_aylar": [3, 4, 5, 6],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin sahil sularında sabah karides veya sülünesle oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Gece, derin sularda yemlenir."}
+    ]
+  },
+  "sarpa": {
+    "isim": "Sarpa",
+    "bilimsel_isim": "Sarpa salpa",
+    "onerilen_teknikler": ["Şamandıralı Yemli (Ekmek/Yosun)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Sarpa_Balik.jpg",
+    "min_boy_cm": 18,
+    "yemler": ["Ekmek", "Yosun"],
+    "yasam_alani": "Kayalık ve yosunlu sığ sularda sürüler halinde gezer.",
+    "ureme_donemi_aylar": [3, 4, 5, 9, 10],
+    "sezon_aylari": [4, 5, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık yosunlu kıyılarda sabah ekmekle sürüler halinde oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık yosunlu kıyılarda gün içinde ekmekle sürüler halinde oltaya gelir."}
+    ]
+  },
+  "sinagrit": {
+    "isim": "Sinagrit",
+    "bilimsel_isim": "Dentex dentex",
+    "onerilen_teknikler": ["Jigging", "Sırtı (Canlı Yem)", "Ağır Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Sinagrit_Balik.jpg",
+    "min_boy_cm": 35,
+    "yemler": ["Canlı Kalamar", "Sübye", "Canlı Balık", "Jig"],
+    "yasam_alani": "Kayalık ve taşlık derinliklerde yaşar, güçlü bir avcıdır.",
+    "ureme_donemi_aylar": [4, 5, 6],
+    "sezon_aylari": [5, 6, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 2, "ipucu": "Derin kayalık bölgelerde sabah canlı balık veya kalamarla av verir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Derin kayalık bölgelerde akşam canlı balık veya kalamarla av verir."}
+    ]
+  },
+  "tekir": {
+    "isim": "Tekir",
+    "bilimsel_isim": "Mullus surmuletus",
+    "onerilen_teknikler": ["Yemli Dip (Hafif Takım)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Tekir_Balik.jpg",
+    "min_boy_cm": 11,
+    "yemler": ["Karides", "Borukurdu"],
+    "yasam_alani": "Kumlu ve çamurlu zeminlerde, barbunyaya benzer şekilde yaşar.",
+    "ureme_donemi_aylar": [3, 4, 5, 6, 7, 8],
+    "sezon_aylari": [9, 10, 11],
+    "bolgeler": ["marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk zeminlerde sabah karidesle oltaya gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk zeminlerde gün içinde karidesle oltaya gelir."}
+    ]
+  },
+  "tirsi": {
+    "isim": "Tirsi",
+    "bilimsel_isim": "Alosa fallax",
+    "onerilen_teknikler": ["Çapari", "Spin (Kaşık)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Tirsi_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Kaşık", "Çapari"],
+    "yasam_alani": "Sardalya ile akrabadır, üremek için nehirlere girer.",
+    "ureme_donemi_aylar": [5, 6],
+    "sezon_aylari": [5, 6],
+    "bolgeler": ["karadeniz", "marmara"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Nehir ağızlarında sabah kaşık yemine gelen göçmen bir türdür."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Nehir ağızlarında akşam kaşık yemine gelen göçmen bir türdür."}
+    ]
+  },
+  "tombik": {
+    "isim": "Tombik (Gobene)",
+    "bilimsel_isim": "Auxis thazard",
+    "onerilen_teknikler": ["Çapari", "Sırtı"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Tombik_Balik.jpg",
+    "min_boy_cm": null,
+    "yemler": ["Çapari", "Sırtı (Küçük Rapala)"],
+    "yasam_alani": "Orkinos ailesindendir, açık denizlerde gezer.",
+    "ureme_donemi_aylar": [5, 6, 7],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde sürüyle gezer, çapariyle sabah yakalanır."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde sürüyle gezer, çapariyle akşam yakalanır."}
+    ]
+  },
+  "trakonya": {
+    "isim": "Trakonya (Çarpan)",
+    "bilimsel_isim": "Trachinus draco",
+    "onerilen_teknikler": ["Yemli Dip (Dikkatli!)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Trakonya_Balik.jpg",
+    "min_boy_cm": 15,
+    "yemler": ["Karides", "Balık Parçası"],
+    "yasam_alani": "Kumlu ve çamurlu diplerde kendini kuma gömerek yaşar. Dikenleri çok zehirlidir.",
+    "ureme_donemi_aylar": [5, 6, 7, 8],
+    "sezon_aylari": [6, 7, 8],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk diplerde sabah karides yemine saldırabilir, DİKKAT! Dikenleri çok zehirlidir."},
+        {"kural_tipi": "gun_zamani", "deger": "gece", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kumluk diplerde gece karides yemine saldırabilir, DİKKAT! Dikenleri çok zehirlidir."}
+    ]
+  },
+  "uskumru": {
+    "isim": "Uskumru",
+    "bilimsel_isim": "Scomber scombrus",
+    "onerilen_teknikler": ["Çapari", "Kaşık At-Çek"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Uskumru_Balik.jpg",
+    "min_boy_cm": 20,
+    "yemler": ["Çapari", "Hamsi", "Sardalya", "Kaşık"],
+    "yasam_alani": "Açık denizlerde büyük sürüler halinde gezer.",
+    "ureme_donemi_aylar": [2, 3, 4],
+    "sezon_aylari": [9, 10, 11],
+    "bolgeler": ["karadeniz", "marmara", "ege"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizde sabah saatlerinde çapariyle yakalanabilir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizde akşam saatlerinde çapariyle yakalanabilir."}
+    ]
+  },
+  "yazili_hani": {
+    "isim": "Yazılı Hani",
+    "bilimsel_isim": "Serranus scriba",
+    "onerilen_teknikler": ["LRF", "Hafif Yemli Dip"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Yazili_Hani_Balik.jpg",
+    "min_boy_cm": null,
+    "yemler": ["Karides", "Küçük Balıklar", "Silikon Yem"],
+    "yasam_alani": "Kayalık ve yosunlu bölgelerde yaşar.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8],
+    "sezon_aylari": [6, 7, 8],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık bölgelerde sabah karides yemine gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gunduz", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Kayalık bölgelerde gün içinde karides yemine gelir."}
+    ]
+  },
+  "yazili_orkinos": {
+    "isim": "Yazılı Orkinos",
+    "bilimsel_isim": "Euthynnus alletteratus",
+    "onerilen_teknikler": ["Sırtı", "Çapari", "Spin (Kaşık/Jig)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Yazili_Orkinos_Balik.jpg",
+    "min_boy_cm": null,
+    "yemler": ["Sırtı (Küçük Rapala)", "Çapari", "Kaşık", "Jig"],
+    "yasam_alani": "Orkinos ailesindendir, açık denizlerde sürüler halinde gezer.",
+    "ureme_donemi_aylar": [7, 8],
+    "sezon_aylari": [8, 9, 10],
+    "bolgeler": ["ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde yaz aylarında sürüyle gezer, sabah sırtı yemine gelir."},
+        {"kural_tipi": "gun_zamani", "deger": "gun_batimi", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Açık denizlerde yaz aylarında sürüyle gezer, akşam sırtı yemine gelir."}
+    ]
+  },
+  "zargana": {
+    "isim": "Zargana",
+    "bilimsel_isim": "Belone belone",
+    "onerilen_teknikler": ["Şamandıralı Yemli (İpek/Balık Parçası)"],
+    "tip": "tuzlu_su",
+    "gorsel_url": "Zargana_Balik.jpg",
+    "min_boy_cm": 36,
+    "yemler": ["İpek", "Küçük Balık Parçası", "Şamandıralı Olta"],
+    "yasam_alani": "Su yüzeyine yakın, sürüler halinde gezer.",
+    "ureme_donemi_aylar": [4, 5, 6, 7, 8],
+    "sezon_aylari": [5, 6, 7, 8, 9, 10],
+    "bolgeler": ["karadeniz", "marmara", "ege", "akdeniz"],
+    "akilli_kurallar": [
+        {"kural_tipi": "gun_zamani", "deger": "gun_dogumu", "operator": "esittir", "puan_etkisi": 1, "ipucu": "Suyun yüzeyine yakın sabah saatlerinde küçük balık parçalarıyla av verir."},
+        {"kural_tipi": "ruzgar", "deger": 10, "operator": "<", "puan_etkisi": 1, "ipucu": "Sakin ve çarşaf deniz, Zargana'nın yüzeyde avlanması ve ipeğe takılması için idealdir."}
+    ]
+  }
+}

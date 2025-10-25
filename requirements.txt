@@ -1,0 +1,6 @@
+Flask
+Flask-Mail
+requests
+astral
+python-dotenv
+gunicorn

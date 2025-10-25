@@ -1,0 +1,14 @@
+body { font-family: 'Poppins', sans-serif; background-color: #f3f4f6; }
+.modal-backdrop { 
+    background-color: rgba(0, 0, 0, 0.6); 
+    z-index: 1000; 
+}
+#arama-sonuclari, #kayit-listesi { max-height: 200px; overflow-y: auto; }
+#arama-sonuclari { z-index: 999; }
+.secili-sonuc { background-color: #dbeafe; }
+.chart-bar { transition: all 0.3s ease-in-out; cursor: pointer; }
+.chart-bar:hover { filter: brightness(1.1); transform: scaleY(1.05); }
+.selected-bar { box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5); }
+.hero video {
+    z-index: -1; 
+}
