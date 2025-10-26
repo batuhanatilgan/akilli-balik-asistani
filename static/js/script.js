@@ -643,7 +643,7 @@ function sonuclariDetayliGoster(data) {
                 <div class="chart-bar w-full h-40 bg-gray-200 rounded-md flex items-end" data-ipucu="${item.ipucu}" data-sicaklik="${item.sicaklik}" data-saat="${item.saat}">
                     <div class="w-full rounded-md ${barRengi}" style="height: ${item.puan * 10}%;"></div>
                 </div>
-                <img src="http://openweathermap.org/img/wn/${item.ikon}.png" alt="hava durumu" class="w-8 h-8"/>
+                <img src="httpss://openweathermap.org/img/wn/${item.ikon}.png" alt="hava durumu" class="w-8 h-8"/>
                 <div class="text-xs text-gray-500">${item.saat}</div>
             </div>`;
     }).join('');
