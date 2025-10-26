@@ -402,7 +402,8 @@ def process_full_recommendation(balik_adi, city=None, lat=None, lon=None):
 
     goruntulenen_sehir_adi = mevcut_hava_durumu.get('sehir', 'Bilinmiyor')
     il_adi_raw = konum_detaylari.get('il_adi', 'Bilinmiyor')
-    il_adi_fixed = normalize_city_name(il_adi_raw) 
+    il_adi_temiz = il_adi_raw.replace(" ili", "").replace(" İli", "")
+    il_adi_fixed = normalize_city_name(il_adi_temiz)
     
     konumun_bolgeleri = set()
     konum_denize_kiyisi_var = False
