@@ -253,7 +253,7 @@ function handleSignup() {
 
 function handleGoogleSignin() {
     const provider = new GoogleAuthProvider();
-    signInWithPopup(auth, provider)
+    signInWithRedirect(auth, provider)
         .then(() => authModal.classList.add('hidden'))
         .catch(error => { if (error.code !== 'auth/popup-closed-by-user') handleAuthError(error); });
 }
