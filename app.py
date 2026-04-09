@@ -207,10 +207,12 @@ def check_solunar_activity(dt_local):
     hour = dt_local.hour + dt_local.minute / 60.0
     s_times = get_solunar_times()
     for m in s_times["major"]:
-        if abs(hour - m) <= 1.0 or abs(hour - m) >= 23.0:
+        diff = min(abs(hour - m), 24 - abs(hour - m))
+        if diff <= 1.5:
             return "major"
     for m in s_times["minor"]:
-        if abs(hour - m) <= 0.5 or abs(hour - m) >= 23.5:
+        diff = min(abs(hour - m), 24 - abs(hour - m))
+        if diff <= 1.0:
             return "minor"
     return None
 
