@@ -494,8 +494,9 @@ def get_fish_by_location(sehir_adi):
     for balik_id, balik_data in BALIK_VERITABANI.items():
         if "yasal_uyari" in balik_data:
             continue
-        if mevcut_ay in balik_data.get("ureme_donemi_aylar", []):
-            continue
+            
+        ureme_uyarisi = mevcut_ay in balik_data.get("ureme_donemi_aylar", [])
+        
         if not any(bolge in sehir_bolgeleri for bolge in balik_data.get("bolgeler", [])):
             continue
         
@@ -505,8 +506,9 @@ def get_fish_by_location(sehir_adi):
             balik_data_kopya['id'] = balik_id
             balik_data_kopya['anlik_puan'] = tavsiye['puan']
             balik_data_kopya['anlik_ipucu'] = tavsiye['ipucu']
+            balik_data_kopya['ureme_doneminde'] = ureme_uyarisi
             uygun_baliklar.append(balik_data_kopya)
-    sirali_baliklar = sorted(uygun_baliklar, key=lambda x: x['anlik_puan'], reverse=True)
+    sirali_baliklar = sorted(uygun_baliklar, key=lambda x: (not x.get('ureme_doneminde', False), x['anlik_puan']), reverse=True)
 
     return jsonify({
         "sehir": sehir_adi.capitalize(),
@@ -720,16 +722,17 @@ def get_fish_by_coords(lat, lon, su_tipi):
             if "yasal_uyari" in balik_data:
                 continue
             
-            if mevcut_ay in balik_data.get("ureme_donemi_aylar", []):
-                uremedeki_baliklar_isimleri.append(balik_data['isim'])
-                continue
+            ureme_uyarisi = mevcut_ay in balik_data.get("ureme_donemi_aylar", [])
             
             now_local_dt = datetime.now(timezone.utc) + timedelta(seconds=mevcut_hava_durumu['saat_dilimi_farki'])
             anlik_solunar = check_solunar_activity(now_local_dt)
             tavsiye = akilli_tavsiye_olustur(balik_id, mevcut_hava_durumu, ay_evresi, gun_zamani, gelgit_verisi, marine_verisi, anlik_solunar)
             if tavsiye['puan'] > 2:
-                balik_data_kopya = dict(balik_data, id=balik_id, anlik_puan=tavsiye['puan'], anlik_ipucu=tavsiye['ipucu'])
+                balik_data_kopya = dict(balik_data, id=balik_id, anlik_puan=tavsiye['puan'], anlik_ipucu=tavsiye['ipucu'], ureme_doneminde=ureme_uyarisi)
+                if ureme_uyarisi:
+                    balik_data_kopya['anlik_puan'] = 2  # Üreme dönemindeki balıkların puanını düşürerek aşağıda çıkmalarını sağla
                 uygun_baliklar.append(balik_data_kopya)
+    
     if not uygun_baliklar and uremedeki_baliklar_isimleri:
         ornek_baliklar = ", ".join(uremedeki_baliklar_isimleri[:2])
         bilgi_mesaji = f"Bu bölgedeki popüler balıkların birçoğu (örn: {ornek_baliklar}) şu anda üreme döneminde olduğu için listede gösterilmiyor. Lütfen sürdürülebilir avcılığa destek olun."
@@ -739,7 +742,7 @@ def get_fish_by_coords(lat, lon, su_tipi):
             "onerilen_baliklar": [] 
         })
         
-    sirali_baliklar = sorted(uygun_baliklar, key=lambda x: x['anlik_puan'], reverse=True)
+    sirali_baliklar = sorted(uygun_baliklar, key=lambda x: (not x.get('ureme_doneminde', False), x['anlik_puan']), reverse=True)
     return jsonify({
         "sehir": goruntulenen_sehir_adi.capitalize(),
         "alt_bolge": alt_bolge_adi,

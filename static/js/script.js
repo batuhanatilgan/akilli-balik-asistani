@@ -607,15 +607,22 @@ function sonuclariKesfetOlarakGoster(data) {
             ? `<img src="/static/images/${balik.gorsel_url}" alt="${balik.isim}" class="w-20 h-20 object-contain bg-gray-100 rounded-md flex-shrink-0">`
             : `<div class="w-20 h-20 bg-gray-200 rounded-md flex-shrink-0"></div>`; 
 
+        const uremeUyarisiHTML = balik.ureme_doneminde 
+            ? `<span class="bg-red-100 text-red-800 text-xs font-semibold px-2 py-0.5 rounded border border-red-200 mt-1 inline-block" title="Genel kurallara göre bu ay üreme döneminde olabilir. Lütfen yerel tebliğleri kontrol edin.">⚠️ Üreme Sezonu</span>`
+            : '';
+
         return `
-            <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex items-center gap-4">
+            <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex items-center gap-4 ${balik.ureme_doneminde ? 'opacity-80' : ''}">
                 ${gorselHTML}
                 <div class="flex-grow">
                     <div class="flex justify-between items-start">
-                        <h3 class="text-lg font-semibold text-blue-800">${balik.isim}</h3>
+                        <div>
+                            <h3 class="text-lg font-semibold text-blue-800">${balik.isim}</h3>
+                            ${uremeUyarisiHTML}
+                        </div>
                         <div class="w-10 h-10 ${puanRengi} rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0">${balik.anlik_puan}</div>
                     </div>
-                    <p class="text-xs text-gray-500 italic mb-2">${balik.bilimsel_isim || ''}</p>
+                    <p class="text-xs text-gray-500 italic mb-2 mt-1">${balik.bilimsel_isim || ''}</p>
                     <p class="text-sm text-gray-600">${balik.anlik_ipucu}</p>
                 </div>
             </div>`;
