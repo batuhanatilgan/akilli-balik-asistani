@@ -19,10 +19,10 @@
     ],
     "yasam_alani": "Göl ve yavaş akan derelerin dip suları.",
     "ureme_donemi_aylar": [
+      3,
       4,
       5,
-      6,
-      7
+      6
     ],
     "sezon_aylari": [
       4,
@@ -188,8 +188,11 @@
     ],
     "yasam_alani": "Soğuk, berrak ve oksijeni bol akarsular.",
     "ureme_donemi_aylar": [
+      10,
       11,
-      12
+      12,
+      1,
+      2
     ],
     "sezon_aylari": [
       4,
@@ -327,6 +330,7 @@
     ],
     "yasam_alani": "Soğuk göl ve akarsular, yetiştiriciliği yapılır.",
     "ureme_donemi_aylar": [
+      10,
       11,
       12,
       1,
@@ -386,8 +390,11 @@
     ],
     "yasam_alani": "Sadece Abant gölü ve Yedigöller'de bulunur.",
     "ureme_donemi_aylar": [
+      10,
       11,
-      12
+      12,
+      1,
+      2
     ],
     "sezon_aylari": [
       4,
@@ -440,6 +447,8 @@
     ],
     "yasam_alani": "Durgun ve sığ sular, göletler.",
     "ureme_donemi_aylar": [
+      3,
+      4,
       5,
       6
     ],
@@ -479,9 +488,10 @@
     ],
     "yasam_alani": "Bitki örtüsü yoğun, çamurlu dipli göl ve yavaş akan sular.",
     "ureme_donemi_aylar": [
+      3,
+      4,
       5,
-      6,
-      7
+      6
     ],
     "sezon_aylari": [
       5,
@@ -564,6 +574,8 @@
     ],
     "yasam_alani": "Durgun ve yavaş akan sular.",
     "ureme_donemi_aylar": [
+      3,
+      4,
       5,
       6
     ],
@@ -605,6 +617,7 @@
     ],
     "yasam_alani": "Durgun ve yavaş akan suların bitkili, sığ bölgeleri.",
     "ureme_donemi_aylar": [
+      3,
       4,
       5,
       6
@@ -653,6 +666,7 @@
     ],
     "yasam_alani": "Büyük nehirler ve göller.",
     "ureme_donemi_aylar": [
+      3,
       4,
       5,
       6
@@ -766,9 +780,8 @@
     ],
     "yasam_alani": "Büyük göllerin ve yavaş akan nehirlerin derin, bulanık suları.",
     "ureme_donemi_aylar": [
-      4,
-      5,
-      6
+      3,
+      4
     ],
     "sezon_aylari": [
       4,
@@ -827,9 +840,10 @@
     ],
     "yasam_alani": "Durgun ve yavaş akan sular.",
     "ureme_donemi_aylar": [
+      3,
+      4,
       5,
-      6,
-      7
+      6
     ],
     "sezon_aylari": [
       5,
@@ -869,10 +883,10 @@
     ],
     "yasam_alani": "Akarsuların sakin ve derin bölgeleri, göller.",
     "ureme_donemi_aylar": [
+      3,
       4,
       5,
-      6,
-      7
+      6
     ],
     "sezon_aylari": [
       5,
@@ -927,9 +941,7 @@
     "yasam_alani": "Göller, göletler ve yavaş akan nehirlerin bitkili alanları.",
     "ureme_donemi_aylar": [
       3,
-      4,
-      5,
-      6
+      4
     ],
     "sezon_aylari": [
       4,
@@ -985,8 +997,10 @@
     ],
     "yasam_alani": "Durgun veya yavaş akan, bitki örtüsü bol sular, sazlık kenarları.",
     "ureme_donemi_aylar": [
-      3,
-      4
+      12,
+      1,
+      2,
+      3
     ],
     "sezon_aylari": [
       4,
@@ -1056,9 +1070,10 @@
     ],
     "yasam_alani": "Büyük nehirlerin ve göllerin çamurlu dipleri.",
     "ureme_donemi_aylar": [
+      3,
+      4,
       5,
-      6,
-      7
+      6
     ],
     "sezon_aylari": [
       5,
@@ -2947,16 +2962,7 @@
     "ureme_donemi_aylar": [
       1,
       2,
-      3,
-      4,
-      5,
-      6,
-      7,
-      8,
-      9,
-      10,
-      11,
-      12
+      3
     ],
     "sezon_aylari": [
       11,

@@ -607,23 +607,33 @@ function sonuclariKesfetOlarakGoster(data) {
             ? `<img src="/static/images/${balik.gorsel_url}" alt="${balik.isim}" class="w-20 h-20 object-contain bg-gray-100 rounded-md flex-shrink-0">`
             : `<div class="w-20 h-20 bg-gray-200 rounded-md flex-shrink-0"></div>`; 
 
-        const uremeUyarisiHTML = balik.ureme_doneminde 
-            ? `<span class="bg-red-100 text-red-800 text-xs font-semibold px-2 py-0.5 rounded border border-red-200 mt-1 inline-block" title="Genel kurallara göre bu ay üreme döneminde olabilir. Lütfen yerel tebliğleri kontrol edin.">⚠️ Üreme Sezonu</span>`
+        const uremeUyarisiHTML = balik.ureme_doneminde && !balik.yasal_uyari_mesaji
+            ? `<span class="bg-yellow-100 text-yellow-800 text-[10px] font-semibold px-2 py-0.5 rounded border border-yellow-300 mt-1 inline-block" title="Genel kurallara göre bu ay üreme döneminde olabilir. Lütfen yerel tebliğleri kontrol edin.">⚠️ Üreme Sezonu (Dikkat)</span>`
+            : '';
+            
+        const yasalUyariHTML = balik.yasal_uyari_mesaji
+            ? `<span class="bg-red-100 text-red-800 text-[10px] font-bold px-2 py-0.5 rounded border border-red-300 mt-1 inline-block" title="${balik.yasal_uyari_mesaji}">🚫 KESİN YASAK (KORUMA ALTINDA)</span>`
             : '';
 
+        const uyariBirlestir = yasalUyariHTML || uremeUyarisiHTML;
+        const opacityClass = (balik.ureme_doneminde || balik.yasal_uyari_mesaji) ? 'opacity-80 grayscale' : '';
+        const puanAlaniHTML = balik.yasal_uyari_mesaji 
+            ? `<div class="w-10 h-10 bg-gray-500 rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0" title="Yasak olduğu için puan hesabı yapılmamıştır.">-</div>`
+            : `<div class="w-10 h-10 ${puanRengi} rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0">${balik.anlik_puan}</div>`;
+
         return `
-            <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex items-center gap-4 ${balik.ureme_doneminde ? 'opacity-80' : ''}">
+            <div class="bg-white p-4 rounded-lg shadow-md border hover:shadow-lg transition-shadow flex items-center gap-4 ${opacityClass}">
                 ${gorselHTML}
                 <div class="flex-grow">
                     <div class="flex justify-between items-start">
                         <div>
                             <h3 class="text-lg font-semibold text-blue-800">${balik.isim}</h3>
-                            ${uremeUyarisiHTML}
+                            ${uyariBirlestir}
                         </div>
-                        <div class="w-10 h-10 ${puanRengi} rounded-full flex items-center justify-center text-white text-lg font-bold flex-shrink-0">${balik.anlik_puan}</div>
+                        ${puanAlaniHTML}
                     </div>
                     <p class="text-xs text-gray-500 italic mb-2 mt-1">${balik.bilimsel_isim || ''}</p>
-                    <p class="text-sm text-gray-600">${balik.anlik_ipucu}</p>
+                    <p class="text-sm text-gray-600">${balik.yasal_uyari_mesaji ? 'Bu balığın türümüz sularında avlanması/alıkonulması kesinlikle yasaktır.' : balik.anlik_ipucu}</p>
                 </div>
             </div>`;
     }).join('');
