@@ -20,6 +20,7 @@ if not STORMGLASS_KEY:
     raise ValueError("Hata: STORMGLASS_API_KEY ortam değişkeni ayarlanmamış!")
 
 TIDE_CACHE = {}
+MARINE_CACHE = {}
 
 app.config['MAIL_SERVER'] = 'smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
@@ -75,6 +76,63 @@ SEHIR_BOLGE_MAP = {
     "adana": ["akdeniz"],
     "hatay": ["akdeniz"],
 }
+
+# -------------------------------------------------------------------
+# KOORDİNAT TABANLI BÖLGE TESPİT SİSTEMİ
+# Haritadan tıklanan tam koordinata göre deniz bölgesi tespit edilir.
+# -------------------------------------------------------------------
+DENIZ_BOUNDING_BOXES = {
+    "marmara":   {"lat_min": 40.30, "lat_max": 41.10, "lon_min": 26.90, "lon_max": 29.95},
+    "karadeniz": {"lat_min": 40.90, "lat_max": 43.00, "lon_min": 27.80, "lon_max": 41.80},
+    "ege":       {"lat_min": 36.00, "lat_max": 40.80, "lon_min": 25.60, "lon_max": 27.80},
+    "akdeniz":   {"lat_min": 35.80, "lat_max": 37.50, "lon_min": 27.80, "lon_max": 36.20},
+}
+
+BOLGE_ALT_BOLGELER = {
+    "marmara": [
+        {"isim": "Istanbul Bogazi",        "lat_min": 40.85, "lat_max": 41.20, "lon_min": 28.90, "lon_max": 29.20, "ozel": "Lufer, palamut ve istavrit icin akinti noktasi."},
+        {"isim": "Kocaeli Marmara Kiyisi", "lat_min": 40.55, "lat_max": 40.80, "lon_min": 29.50, "lon_max": 30.10, "ozel": "Kumluk mirmir alanlari, levrek ve kefal icin uygun."},
+        {"isim": "Izmit Korfezi",          "lat_min": 40.60, "lat_max": 40.80, "lon_min": 29.50, "lon_max": 30.40, "ozel": "Kapali korfez, kefal ve palamut yogun."},
+        {"isim": "Gemlik Korfezi",         "lat_min": 40.30, "lat_max": 40.55, "lon_min": 28.90, "lon_max": 29.55, "ozel": "Sakin korfez, cipura ve sinarit icin ideal."},
+        {"isim": "Tekirdag Sahili",        "lat_min": 40.75, "lat_max": 41.05, "lon_min": 26.90, "lon_max": 28.00, "ozel": "Acik Marmara, palamut ve uskumru gocu."},
+    ],
+    "karadeniz": [
+        {"isim": "Istanbul Karadeniz",     "lat_min": 41.00, "lat_max": 41.40, "lon_min": 28.50, "lon_max": 29.40, "ozel": "Kalkan, mezgit ve lufer icin onemli bolge."},
+        {"isim": "Bati Karadeniz",         "lat_min": 41.00, "lat_max": 42.20, "lon_min": 30.00, "lon_max": 33.00, "ozel": "Hamsi, palamut ve kalkan sezon bolgesi."},
+        {"isim": "Dogu Karadeniz",         "lat_min": 40.90, "lat_max": 42.00, "lon_min": 37.50, "lon_max": 41.80, "ozel": "Hamsi anavatani. Kis aylarinda yogun hamsi gocu."},
+    ],
+    "ege": [
+        {"isim": "Kuzey Ege",              "lat_min": 39.50, "lat_max": 40.80, "lon_min": 25.60, "lon_max": 27.30, "ozel": "Sinagrit ve cipura icin kayalik alanlar."},
+        {"isim": "Izmir Korfezi",          "lat_min": 38.00, "lat_max": 38.70, "lon_min": 26.50, "lon_max": 27.30, "ozel": "Cipura ve levrek icin korunakli korfez."},
+        {"isim": "Guney Ege - Mugla",      "lat_min": 36.50, "lat_max": 37.50, "lon_min": 26.80, "lon_max": 28.30, "ozel": "Orfoz, sinagrit ve sarikuyruk icin kayalik derinlikler."},
+    ],
+    "akdeniz": [
+        {"isim": "Antalya Bati - Kas",     "lat_min": 36.00, "lat_max": 36.40, "lon_min": 28.90, "lon_max": 29.60, "ozel": "Sigh kayaliklar, sinagrit ve papagan baligi."},
+        {"isim": "Antalya Dogu - Lara",    "lat_min": 36.50, "lat_max": 37.10, "lon_min": 30.30, "lon_max": 31.30, "ozel": "Kumluk mirmir sahilleri, levrek."},
+        {"isim": "Mersin - Adana Sahili",  "lat_min": 36.40, "lat_max": 36.90, "lon_min": 34.00, "lon_max": 36.20, "ozel": "Sinarit, akya ve mercan bolgesi."},
+    ],
+}
+
+def koordinat_bolge_tespit(lat, lon):
+    """Koordinata gore hangi denizde oldugunu ve alt bolgeyi tespit eder."""
+    bolgeler = []
+    for bolge_adi, s in DENIZ_BOUNDING_BOXES.items():
+        if s["lat_min"] <= lat <= s["lat_max"] and s["lon_min"] <= lon <= s["lon_max"]:
+            bolgeler.append(bolge_adi)
+
+    alt_bolge = None
+    alt_bolge_notu = None
+    for ana_bolge in bolgeler:
+        for alt in BOLGE_ALT_BOLGELER.get(ana_bolge, []):
+            if alt["lat_min"] <= lat <= alt["lat_max"] and alt["lon_min"] <= lon <= alt["lon_max"]:
+                alt_bolge = alt["isim"]
+                alt_bolge_notu = alt.get("ozel")
+                break
+        if alt_bolge:
+            break
+
+    return {"bolgeler": bolgeler, "alt_bolge": alt_bolge, "alt_bolge_notu": alt_bolge_notu}
+
 def get_coords_from_city(city_name, api_key):
     city_name_fixed = normalize_city_name(city_name) 
     geo_url = f"http://api.openweathermap.org/geo/1.0/direct?q={city_name_fixed},TR&limit=1&appid={api_key}"
@@ -136,6 +194,26 @@ def get_moon_phase():
     elif 13.0 < p < 15.0: return {"isim": "Dolunay", "emoji": "🌕"}
     else: return {"isim": "Ara Evre", "emoji": "🌗"}
 
+def get_solunar_times():
+    p = phase(date.today())
+    F = p / 29.53 
+    shift_hours = F * 24
+    return {
+        "major": [(12.0 + shift_hours) % 24, (0.0 + shift_hours) % 24],
+        "minor": [(6.0 + shift_hours) % 24, (18.0 + shift_hours) % 24]
+    }
+
+def check_solunar_activity(dt_local):
+    hour = dt_local.hour + dt_local.minute / 60.0
+    s_times = get_solunar_times()
+    for m in s_times["major"]:
+        if abs(hour - m) <= 1.0 or abs(hour - m) >= 23.0:
+            return "major"
+    for m in s_times["minor"]:
+        if abs(hour - m) <= 0.5 or abs(hour - m) >= 23.5:
+            return "minor"
+    return None
+
 def get_time_of_day(weather_data):
     if not weather_data: return {"id": "bilinmiyor", "isim": "Bilinmiyor", "emoji": "❓"}
     now_utc = datetime.now(timezone.utc)
@@ -151,24 +229,19 @@ def get_time_of_day(weather_data):
     else: return {"id": "gece", "isim": "Gece", "emoji": "🌃"}
     
 def get_tide_data(lat, lon):
-   
-    today_str = datetime.now(timezone.utc).strftime('%Y-%m-%d')
-    cache_key = f"{round(lat, 1)}-{round(lon, 1)}-{today_str}"
+    now_utc = datetime.now(timezone.utc)
+    today_str = now_utc.strftime('%Y-%m-%d')
+    hour_idx = now_utc.hour // 12 # 0 or 1 for 12 hour caching
+    cache_key = f"{round(lat, 1)}-{round(lon, 1)}-{today_str}-{hour_idx}"
 
-    tide_status_error = {"durum": "bilinmiyor", "durum_aciklamasi": "Bilinmiyor"}
-    TIDE_CACHE[cache_key] = tide_status_error 
-    return tide_status_error
-
-    
     if cache_key in TIDE_CACHE:
         return TIDE_CACHE[cache_key]
 
     try:
-
         params = {
             'lat': lat,
             'lng': lon,
-            'params': 'tideExtremes', 
+            'params': 'tideExtremes',
             'start': datetime.now(timezone.utc).timestamp(),
             'end': (datetime.now(timezone.utc) + timedelta(days=1)).timestamp(),
         }
@@ -212,11 +285,66 @@ def get_tide_data(lat, lon):
         return tide_status
 
     except Exception as e:
-        print(f"Stormglass API Hatası (Cache Key: {cache_key}): {e}")
+        print(f"Stormglass Tide API Hatası (Cache Key: {cache_key}): {e}")
         tide_status_error = {"durum": "bilinmiyor", "durum_aciklamasi": "Bilinmiyor"}
-        TIDE_CACHE[cache_key] = tide_status_error 
+        TIDE_CACHE[cache_key] = tide_status_error
         return tide_status_error
-    
+
+def get_marine_data(lat, lon):
+    """
+    StormGlass API'den su sıcaklığı, dalga yüksekliği ve akıntı hızını alır.
+    12 saatlik cache ile çalışır.
+    """
+    now_utc = datetime.now(timezone.utc)
+    today_str = now_utc.strftime('%Y-%m-%d')
+    hour_idx = now_utc.hour // 12
+    cache_key = f"{round(lat, 1)}-{round(lon, 1)}-{today_str}-{hour_idx}"
+
+    if cache_key in MARINE_CACHE:
+        return MARINE_CACHE[cache_key]
+
+    try:
+        now_ts = now_utc.timestamp()
+        params = {
+            'lat': lat,
+            'lng': lon,
+            'params': 'waterTemperature,waveHeight,currentSpeed',
+            'start': now_ts,
+            'end': now_ts,
+            'source': 'sg' # sg is the default global source
+        }
+        
+        response = requests.get(
+            'https://api.stormglass.io/v2/weather/point',
+            params=params,
+            headers={'Authorization': STORMGLASS_KEY}
+        )
+        response.raise_for_status()
+        data = response.json()
+        
+        if not data.get('hours') or len(data['hours']) == 0:
+            raise Exception("Stormglass'tan 'hours' anahtarı alınamadı veya boş.")
+
+        hour_data = data['hours'][0]
+        
+        # We retrieve the 'sg' source values securely
+        marine_data = {
+            "sicaklik_su": hour_data.get('waterTemperature', {}).get('sg'), 
+            "dalga_boyu": hour_data.get('waveHeight', {}).get('sg'), 
+            "akinti_hizi": hour_data.get('currentSpeed', {}).get('sg'),
+            "durum": "basarili"
+        }
+        
+        MARINE_CACHE[cache_key] = marine_data
+        return marine_data
+
+    except Exception as e:
+        print(f"Stormglass Marine API Hatası (Cache Key: {cache_key}): {e}")
+        marine_status_error = {"durum": "hata"}
+        MARINE_CACHE[cache_key] = marine_status_error
+        return marine_status_error
+
+
 def derece_to_yon(derece):
     """Rüzgar yönünü dereceden ana ve ara yönlere çevirir."""
     if derece is None:
@@ -225,7 +353,7 @@ def derece_to_yon(derece):
     yonler = ["K", "KKB", "KB", "BKB", "B", "BGB", "GB", "GGB", "G", "GGD", "GD", "DGD", "D", "DKD", "KD", "KKD"]
     return yonler[(val % 16)]
 
-def akilli_tavsiye_olustur(hedef_balik_id, hava_durumu, ay_evresi, gun_zamani, gelgit_verisi=None):
+def akilli_tavsiye_olustur(hedef_balik_id, hava_durumu, ay_evresi, gun_zamani, gelgit_verisi=None, marine_verisi=None, solunar_aktivite=None):
     if not hava_durumu:
         return {"puan": 0, "ipucu": "Hava durumu verisi alınamadı, puanlama yapılamıyor."}
     puan = 1 
@@ -234,6 +362,13 @@ def akilli_tavsiye_olustur(hedef_balik_id, hava_durumu, ay_evresi, gun_zamani, g
 
     spesifik_ipuclari = [] 
     genel_ipuclari = []    
+    
+    if solunar_aktivite == "major":
+        puan += 2
+        genel_ipuclari.append("⭐ Major Solunar Aktivite: Ay tepede veya ayak altında. Yemlenmenin en yüksek olduğu saatler!")
+    elif solunar_aktivite == "minor":
+        puan += 1
+        genel_ipuclari.append("🌙 Minor Solunar Aktivite: Ay doğuşu veya batışı zamanı. Yemlenme oranı artar.")
 
     mevcut_ay = date.today().month
     balik_bilgisi = BALIK_VERITABANI.get(hedef_balik_id, {})
@@ -290,6 +425,24 @@ def akilli_tavsiye_olustur(hedef_balik_id, hava_durumu, ay_evresi, gun_zamani, g
                         
                 elif kural_tipi == "gelgit" and gelgit_verisi and operator == "esittir" and deger and gelgit_verisi.get("durum") == deger:
                     uygulandi = True
+                
+                elif kural_tipi == "su_sicakligi" and marine_verisi and operator and deger is not None and marine_verisi.get("sicaklik_su") is not None:
+                    su_sicakligi = marine_verisi.get("sicaklik_su")
+                    if operator == "between" and isinstance(deger, list) and len(deger) == 2:
+                        if deger[0] <= su_sicakligi <= deger[1]:
+                            uygulandi = True
+                    elif (operator == ">" and su_sicakligi > deger) or \
+                         (operator == "<" and su_sicakligi < deger):
+                        uygulandi = True
+
+                elif kural_tipi == "dalga_boyu" and marine_verisi and operator and deger is not None and marine_verisi.get("dalga_boyu") is not None:
+                    dalga_boyu = marine_verisi.get("dalga_boyu")
+                    if operator == "between" and isinstance(deger, list) and len(deger) == 2:
+                        if deger[0] <= dalga_boyu <= deger[1]:
+                            uygulandi = True
+                    elif (operator == ">" and dalga_boyu > deger) or \
+                         (operator == "<" and dalga_boyu < deger):
+                        uygulandi = True
 
                 if uygulandi:
                     puan += puan_etkisi
@@ -397,23 +550,36 @@ def process_full_recommendation(balik_adi, city=None, lat=None, lon=None):
     hedef_balik_bolgeleri = balik_bilgisi.get("bolgeler", [])
     
     gelgit_verisi = None
+    marine_verisi = None
     if hedef_balik_tipi == 'tuzlu_su':
         gelgit_verisi = get_tide_data(lat, lon)
+        marine_verisi = get_marine_data(lat, lon)
 
     goruntulenen_sehir_adi = mevcut_hava_durumu.get('sehir', 'Bilinmiyor')
     il_adi_raw = konum_detaylari.get('il_adi', 'Bilinmiyor')
     il_adi_temiz = il_adi_raw.replace(" ili", "").replace(" İli", "")
     il_adi_fixed = normalize_city_name(il_adi_temiz)
-    
+
+    # --- KOORDİNAT TABANLI BÖLGE TESPİTİ (öncelikli) ---
+    koordinat_sonucu = koordinat_bolge_tespit(lat, lon)
+    koord_bolgeler = koordinat_sonucu["bolgeler"]
+    alt_bolge_adi = koordinat_sonucu["alt_bolge"]
+    alt_bolge_notu = koordinat_sonucu["alt_bolge_notu"]
+
     konumun_bolgeleri = set()
     konum_denize_kiyisi_var = False
-    
-    matched_city_regions = SEHIR_BOLGE_MAP.get(il_adi_fixed) 
-    
-    if matched_city_regions:
-        if any(b != "tatlisu_genel" for b in matched_city_regions):
-            konum_denize_kiyisi_var = True
-        konumun_bolgeleri.update(matched_city_regions)
+
+    if koord_bolgeler:
+        # Koordinat tespiti başarılı — doğrudan kullan
+        konumun_bolgeleri.update(koord_bolgeler)
+        konum_denize_kiyisi_var = True
+    else:
+        # Koordinat deniz bölgesi bulunamadı — il adıyla fallback
+        matched_city_regions = SEHIR_BOLGE_MAP.get(il_adi_fixed)
+        if matched_city_regions:
+            if any(b != "tatlisu_genel" for b in matched_city_regions):
+                konum_denize_kiyisi_var = True
+            konumun_bolgeleri.update(matched_city_regions)
             
     konumun_bolgeleri.add("tatlisu_genel")
     konumun_bolgeleri = list(konumun_bolgeleri)
@@ -431,7 +597,10 @@ def process_full_recommendation(balik_adi, city=None, lat=None, lon=None):
     if mevcut_ay in balik_bilgisi.get("ureme_donemi_aylar", []):
         ureme_uyarisi_mesaji = f"**Dikkat:** Seçtiğiniz {balik_bilgisi['isim']} balığı şu anda üreme dönemindedir. Avlanması yasalara aykırı ve sürdürülebilirlik açısından etik değildir."
 
-    akilli_tavsiye = akilli_tavsiye_olustur(balik_adi, mevcut_hava_durumu, ay_evresi, gun_zamani)
+    now_local_dt = datetime.now(timezone.utc) + timedelta(seconds=mevcut_hava_durumu['saat_dilimi_farki'])
+    anlik_solunar_aktivite = check_solunar_activity(now_local_dt)
+
+    akilli_tavsiye = akilli_tavsiye_olustur(balik_adi, mevcut_hava_durumu, ay_evresi, gun_zamani, gelgit_verisi, marine_verisi, anlik_solunar_aktivite)
     
     tahmin_cizelgesi = []
     forecast_data = get_weather_forecast(API_KEY, lat, lon)
@@ -449,18 +618,25 @@ def process_full_recommendation(balik_adi, city=None, lat=None, lon=None):
             elif sunrise_local < item_dt_local < sunset_local: tahmin_gun_zamani = {"id": "gunduz", "isim": "Gündüz", "emoji": "☀️"}
             else: tahmin_gun_zamani = {"id": "gece", "isim": "Gece", "emoji": "🌃"}
             
-            tahmin_tavsiyesi = akilli_tavsiye_olustur(balik_adi, item, ay_evresi, tahmin_gun_zamani, gelgit_verisi) 
+            tahmin_solunar = check_solunar_activity(item_dt_local)
+            tahmin_tavsiyesi = akilli_tavsiye_olustur(balik_adi, item, ay_evresi, tahmin_gun_zamani, gelgit_verisi, marine_verisi, tahmin_solunar) 
             tahmin_cizelgesi.append({
                 "saat": item_dt_local.strftime('%H:%M'),
                 "puan": tahmin_tavsiyesi['puan'],
                 "ipucu": tahmin_tavsiyesi['ipucu'],
                 "sicaklik": round(item['main']['temp']),
+                "solunar": tahmin_solunar,
                 "ikon": item['weather'][0]['icon']
             })
 
     onerilen_teknikler_liste = balik_bilgisi.get("onerilen_teknikler", []) 
     sonuc = {
-        "istek_yapilan_konum": {"enlem": lat, "boylam": lon, "tespit_edilen_sehir": goruntulenen_sehir_adi.capitalize()},
+        "istek_yapilan_konum": {
+            "enlem": lat, "boylam": lon,
+            "tespit_edilen_sehir": goruntulenen_sehir_adi.capitalize(),
+            "alt_bolge": alt_bolge_adi,
+            "alt_bolge_notu": alt_bolge_notu
+        },
         "mevcut_hava_durumu": mevcut_hava_durumu,
         "balik_tavsiyesi": {
             "hedef_balik": balik_bilgisi['isim'],
@@ -472,6 +648,7 @@ def process_full_recommendation(balik_adi, city=None, lat=None, lon=None):
         "ay_evresi": ay_evresi,
         "gun_zamani": gun_zamani,
         "gelgit_verisi": gelgit_verisi,
+        "marine_verisi": marine_verisi,
         "tahmin_cizelgesi": tahmin_cizelgesi,
         "yasal_uyari": yasal_uyari_mesaji,
         "ureme_uyarisi": ureme_uyarisi_mesaji 
@@ -494,11 +671,8 @@ def get_fish_by_coords(lat, lon, su_tipi):
     if not konum_detaylari: return jsonify({"hata": "Konum bilgisi (il) alınamadı."}), 500
     
     goruntulenen_sehir_adi = mevcut_hava_durumu.get('sehir', 'Bilinmiyor')
-    
     il_adi_raw = konum_detaylari.get('il_adi', 'Bilinmiyor')
-    
     il_adi_temiz = il_adi_raw.replace(" ili", "").replace(" İli", "")
-    
     il_adi_fixed = normalize_city_name(il_adi_temiz)
     
     ay_evresi = get_moon_phase()
@@ -507,18 +681,31 @@ def get_fish_by_coords(lat, lon, su_tipi):
     bolgeleri_kontrol_et = set()
     
     gelgit_verisi = None
+    marine_verisi = None
     if su_tipi == 'tuzlu_su':
         gelgit_verisi = get_tide_data(lat, lon)
-    matched_city_regions = SEHIR_BOLGE_MAP.get(il_adi_fixed)
+        marine_verisi = get_marine_data(lat, lon)
+
+    # --- KOORDİNAT TABANLI BÖLGE TESPİTİ (öncelikli) ---
+    koordinat_sonucu = koordinat_bolge_tespit(lat, lon)
+    koord_bolgeler = koordinat_sonucu["bolgeler"]
+    alt_bolge_adi = koordinat_sonucu["alt_bolge"]
+    alt_bolge_notu = koordinat_sonucu["alt_bolge_notu"]
 
     if su_tipi == 'tuzlu_su':
-        if matched_city_regions:
-            sea_regions = {b for b in matched_city_regions if b != "tatlisu_genel"}
-            if not sea_regions:
-                return jsonify({"hata": f"'{goruntulenen_sehir_adi.capitalize()}' ({il_adi_raw}) ilinin denize kıyısı bulunmuyor."}), 400
-            bolgeleri_kontrol_et.update(sea_regions)
+        if koord_bolgeler:
+            # Koordinat tespiti başarılı — doğrudan kullan
+            bolgeleri_kontrol_et.update(koord_bolgeler)
         else:
-            return jsonify({"hata": f"'{goruntulenen_sehir_adi.capitalize()}' ({il_adi_raw}) bölgesinin denize kıyısı bulunmuyor. Lütfen tatlı su avı seçin."}), 400
+            # Koordinat deniz bölgesi bulunamadı — il adıyla fallback
+            matched_city_regions = SEHIR_BOLGE_MAP.get(il_adi_fixed)
+            if matched_city_regions:
+                sea_regions = {b for b in matched_city_regions if b != "tatlisu_genel"}
+                if not sea_regions:
+                    return jsonify({"hata": f"'{goruntulenen_sehir_adi.capitalize()}' ({il_adi_raw}) ilinin denize kıyısı bulunmuyor."}), 400
+                bolgeleri_kontrol_et.update(sea_regions)
+            else:
+                return jsonify({"hata": f"'{goruntulenen_sehir_adi.capitalize()}' ({il_adi_raw}) bölgesinin denize kıyısı bulunmuyor. Lütfen tatlı su avı seçin."}), 400
     elif su_tipi == 'tatli_su':
         bolgeleri_kontrol_et.add("tatlisu_genel")
         
@@ -537,7 +724,9 @@ def get_fish_by_coords(lat, lon, su_tipi):
                 uremedeki_baliklar_isimleri.append(balik_data['isim'])
                 continue
             
-            tavsiye = akilli_tavsiye_olustur(balik_id, mevcut_hava_durumu, ay_evresi, gun_zamani, gelgit_verisi)
+            now_local_dt = datetime.now(timezone.utc) + timedelta(seconds=mevcut_hava_durumu['saat_dilimi_farki'])
+            anlik_solunar = check_solunar_activity(now_local_dt)
+            tavsiye = akilli_tavsiye_olustur(balik_id, mevcut_hava_durumu, ay_evresi, gun_zamani, gelgit_verisi, marine_verisi, anlik_solunar)
             if tavsiye['puan'] > 2:
                 balik_data_kopya = dict(balik_data, id=balik_id, anlik_puan=tavsiye['puan'], anlik_ipucu=tavsiye['ipucu'])
                 uygun_baliklar.append(balik_data_kopya)
@@ -553,10 +742,13 @@ def get_fish_by_coords(lat, lon, su_tipi):
     sirali_baliklar = sorted(uygun_baliklar, key=lambda x: x['anlik_puan'], reverse=True)
     return jsonify({
         "sehir": goruntulenen_sehir_adi.capitalize(),
+        "alt_bolge": alt_bolge_adi,
+        "alt_bolge_notu": alt_bolge_notu,
         "mevcut_hava_durumu": mevcut_hava_durumu,
         "ay_evresi": ay_evresi,
         "gun_zamani": gun_zamani,
         "gelgit_verisi": gelgit_verisi,
+        "marine_verisi": marine_verisi,
         "onerilen_baliklar": sirali_baliklar
     })
 

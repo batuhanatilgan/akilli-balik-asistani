@@ -410,12 +410,21 @@
         </div>
     </div>
     <div id="defter-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
-        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 space-y-4 flex flex-col">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 space-y-4 flex flex-col max-h-[90vh]">
             <div class="flex justify-between items-center">
                 <h3 class="text-xl font-bold text-gray-800">Av Kayıt Defterim</h3>
                 <button id="defter-kapat-btn" class="p-2 text-2xl leading-none rounded-full hover:bg-gray-200">&times;</button>
             </div>
-            <div id="kayit-listesi" class="space-y-3 flex-grow"></div>
+            <div id="kayit-listesi" class="space-y-3 flex-grow overflow-y-auto"></div>
+        </div>
+    </div>
+    <div id="spot-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl p-6 space-y-4 flex flex-col max-h-[90vh]">
+            <div class="flex justify-between items-center bg-teal-50 border-b border-teal-200 -mx-6 -mt-6 p-6 rounded-t-lg">
+                <h3 class="text-xl font-bold text-teal-800">📍 Favori Spotlarım</h3>
+                <button id="spot-kapat-btn" class="p-2 text-2xl leading-none text-teal-600 rounded-full hover:bg-teal-100">&times;</button>
+            </div>
+            <div id="spot-listesi" class="space-y-3 flex-grow overflow-y-auto pt-2"></div>
         </div>
     </div>
     <div id="ansiklopedi-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 modal-backdrop hidden">
@@ -500,11 +509,11 @@
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 
     <script>
         window.BALIK_LISTESI_VERISI = {{ balik_listesi | tojson }};
     </script>
     <script src="{{ url_for('static', filename='js/script.js') }}" type="module"></script>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 </body>
 </html>

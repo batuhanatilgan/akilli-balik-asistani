@@ -69,6 +69,9 @@ const avFotografInput = document.getElementById('av-fotograf');
 const defterModal = document.getElementById('defter-modal');
 const defterKapatBtn = document.getElementById('defter-kapat-btn');
 const kayitListesi = document.getElementById('kayit-listesi');
+const spotModal = document.getElementById('spot-modal');
+const spotKapatBtn = document.getElementById('spot-kapat-btn');
+const spotListesi = document.getElementById('spot-listesi');
 const ansiklopediModal = document.getElementById('ansiklopedi-modal');
 const ansiklopediKapatBtn = document.getElementById('ansiklopedi-kapat-btn');
 const ansiklopediBaslik = document.getElementById('ansiklopedi-baslik');
@@ -165,6 +168,7 @@ function setupAllEventListeners() {
 
     // --- Diğer Modallar ---
     defterKapatBtn.addEventListener('click', () => defterModal.classList.add('hidden'));
+    spotKapatBtn.addEventListener('click', () => spotModal.classList.add('hidden'));
     ansiklopediKapatBtn.addEventListener('click', () => ansiklopediModal.classList.add('hidden'));
     accountKapatBtn.addEventListener('click', () => accountModal.classList.add('hidden'));
     
@@ -441,6 +445,7 @@ function buildMobileMenu(user) {
     if (user) {
         menuHTML = `
             <a href="#" id="menu-defter" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 font-bold text-blue-700">Av Kayıt Defterim</a>
+            <a href="#" id="menu-spotlarim" class="block py-3 px-6 text-teal-700 hover:bg-gray-100 font-bold">Favori Spotlarım 📍</a>
             <a href="#" id="menu-hesabim" class="block py-3 px-6 text-gray-700 hover:bg-gray-100 font-semibold border-b">Hesabım</a>
             ${commonLinksHTML}
             <div class="py-2 px-6 border-t"><button id="menu-cikis" class="w-full text-left py-2 text-sm text-red-600 hover:text-red-800">Oturumu Kapat</button></div>`;
@@ -453,6 +458,7 @@ function buildMobileMenu(user) {
 
     if (user) {
         document.getElementById('menu-defter').addEventListener('click', e => { e.preventDefault(); defteriAc(); mobileMenu.classList.add('hidden'); });
+        document.getElementById('menu-spotlarim').addEventListener('click', e => { e.preventDefault(); spotlariAc(); mobileMenu.classList.add('hidden'); });
         document.getElementById('menu-hesabim').addEventListener('click', e => { e.preventDefault(); openAccountModal(user); mobileMenu.classList.add('hidden'); });
         document.getElementById('menu-cikis').addEventListener('click', () => signOut(auth));
     }
@@ -578,6 +584,18 @@ function sonuclariKesfetOlarakGoster(data) {
         return;
     }
 
+    let altBolgeHTML = '';
+    if (data.alt_bolge) {
+        altBolgeHTML = `
+            <div class="bg-teal-50 border border-teal-200 rounded-lg p-3 mb-4 flex items-start gap-2">
+                <span class="text-teal-600 text-lg">📍</span>
+                <div>
+                    <span class="font-semibold text-teal-800">${data.alt_bolge}</span>
+                    ${data.alt_bolge_notu ? `<p class="text-sm text-teal-700 mt-0.5">${data.alt_bolge_notu}</p>` : ''}
+                </div>
+            </div>`;
+    }
+
     let gelgitHTML = '';
     if (data.gelgit_verisi && data.gelgit_verisi.durum !== 'bilinmiyor') {
         gelgitHTML = ` | Gelgit: ${data.gelgit_verisi.durum_aciklamasi}`;
@@ -602,11 +620,17 @@ function sonuclariKesfetOlarakGoster(data) {
                 </div>
             </div>`;
     }).join('');
+    let marineHTML = '';
+    if (data.marine_verisi && data.marine_verisi.durum === 'basarili') {
+        marineHTML = ` | 💧 Su: ${data.marine_verisi.sicaklik_su.toFixed(1)}°C | 🌊 Dalga: ${data.marine_verisi.dalga_boyu.toFixed(2)}m`;
+    }
+
     const genelDurumHTML = `
-        <div class="text-center mb-6">
+        <div class="text-center mb-4">
             <h3 class="text-2xl font-bold text-gray-800">${data.sehir} İçin Balık Önerileri</h3>
-            <p class="text-gray-500 text-sm mt-1">Hava: ${data.mevcut_hava_durumu.sicaklik_C.toFixed(1)}°C, ${data.mevcut_hava_durumu.aciklama} | ${data.ay_evresi.emoji} ${data.ay_evresi.isim}</p>
+            <p class="text-gray-500 text-sm mt-1">Hava: ${data.mevcut_hava_durumu.sicaklik_C.toFixed(1)}°C, ${data.mevcut_hava_durumu.aciklama} | ${data.ay_evresi.emoji} ${data.ay_evresi.isim}${gelgitHTML}${marineHTML}</p>
         </div>
+        ${altBolgeHTML}
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">${balikKartlariHTML}</div>`;
     sonucAlani.innerHTML = genelDurumHTML;
 }
@@ -626,25 +650,40 @@ function sonuclariDetayliGoster(data) {
         uyariHTML += `<div class="bg-orange-100 border-l-4 border-orange-500 text-orange-800 p-4 rounded-lg mb-6 shadow"><p>${data.ureme_uyarisi.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')}</p></div>`;
     }
 
-    let gelgitHTML = '';
+    let gelgitVeDenizHTML = '';
     if (data.gelgit_verisi && data.gelgit_verisi.durum !== 'bilinmiyor') {
-        gelgitHTML = `
-            <div classm="text-sm text-gray-500 text-center -mt-2 mb-2">
+        gelgitVeDenizHTML += `
+            <div class="text-sm text-gray-500 text-center -mt-2 mb-2">
                 Gelgit Durumu: <strong class="text-gray-700">${data.gelgit_verisi.durum_aciklamasi}</strong>
+            </div>`;
+    }
+    if (data.marine_verisi && data.marine_verisi.durum === 'basarili') {
+        gelgitVeDenizHTML += `
+            <div class="flex items-center justify-center space-x-3 text-sm text-blue-700 bg-blue-50 px-3 py-2 rounded-lg mb-4 mx-auto max-w-fit">
+                <span>💧 Su: <strong>${data.marine_verisi.sicaklik_su.toFixed(1)}°C</strong></span>
+                <span>•</span>
+                <span>🌊 Dalga: <strong>${data.marine_verisi.dalga_boyu.toFixed(2)}m</strong></span>
+                <span>•</span>
+                <span>🛶 Akıntı: <strong>${data.marine_verisi.akinti_hizi.toFixed(2)}m/s</strong></span>
             </div>`;
     }
 
     const anlikPuan = data.balik_tavsiyesi.akilli_tavsiye.puan;
     const cizelgeHTML = data.tahmin_cizelgesi.map(item => {
         const barRengi = item.puan >= 8 ? 'bg-green-500' : item.puan >= 5 ? 'bg-yellow-500' : 'bg-red-500';
+        let solunarIkon = '';
+        if (item.solunar === 'major') solunarIkon = '<div title="Majör Beslenme Saati" class="text-xs mt-1">⭐</div>';
+        else if (item.solunar === 'minor') solunarIkon = '<div title="Minör Beslenme Saati" class="text-xs mt-1">🌙</div>';
+
         return `
             <div class="flex flex-col items-center space-y-1 flex-1">
                 <div class="text-sm font-bold text-gray-700">${item.puan}</div>
                 <div class="chart-bar w-full h-40 bg-gray-200 rounded-md flex items-end" data-ipucu="${item.ipucu}" data-sicaklik="${item.sicaklik}" data-saat="${item.saat}">
                     <div class="w-full rounded-md ${barRengi}" style="height: ${item.puan * 10}%;"></div>
                 </div>
-                <img src="httpss://openweathermap.org/img/wn/${item.ikon}.png" alt="hava durumu" class="w-8 h-8"/>
+                <img src="https://openweathermap.org/img/wn/${item.ikon}.png" alt="hava durumu" class="w-8 h-8"/>
                 <div class="text-xs text-gray-500">${item.saat}</div>
+                ${solunarIkon}
             </div>`;
     }).join('');
 
@@ -662,8 +701,12 @@ function sonuclariDetayliGoster(data) {
             <div>
                 <div class="flex justify-between items-center mb-4">
                     <h3 class="font-bold text-lg text-gray-800">${data.balik_tavsiyesi.hedef_balik} İçin Anlık Durum</h3>
-                    ${currentUser ? `<button id="avi-kaydet-btn" class="bg-green-100 text-green-800 text-xs font-bold py-2 px-3 rounded-lg hover:bg-green-200 transition">Avını Kaydet 🎣</button>` : ''}
+                    <div class="flex space-x-2">
+                        ${currentUser ? `<button id="spot-kaydet-btn" class="bg-blue-100 text-blue-800 text-xs font-bold py-2 px-3 rounded-lg hover:bg-blue-200 transition" data-lat="${data.istek_yapilan_konum.enlem}" data-lon="${data.istek_yapilan_konum.boylam}" data-bolge="${data.istek_yapilan_konum.alt_bolge}">Noktayı Kaydet 📍</button>
+                        <button id="avi-kaydet-btn" class="bg-green-100 text-green-800 text-xs font-bold py-2 px-3 rounded-lg hover:bg-green-200 transition">Avını Kaydet 🎣</button>` : ''}
+                    </div>
                 </div>
+                ${gelgitVeDenizHTML}
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="sm:col-span-1 flex flex-col items-center justify-center bg-gray-50 p-4 rounded-lg text-center space-y-1">
                         <div class="text-sm text-gray-500">Şu Anki Puan</div>
@@ -672,6 +715,7 @@ function sonuclariDetayliGoster(data) {
                             <div id="puanMetni" class="absolute inset-0 flex items-center justify-center text-4xl font-extrabold text-gray-700 -mt-3"></div>
                         </div>
                         <div class="font-semibold text-gray-800">${data.istek_yapilan_konum.tespit_edilen_sehir}</div>
+                        ${data.istek_yapilan_konum.alt_bolge ? `<div class="text-xs text-teal-600 font-medium">📍 ${data.istek_yapilan_konum.alt_bolge}</div>` : ''}
                     </div>
                     <div class="sm:col-span-2 space-y-3">
                         <p class="text-sm text-gray-600 bg-blue-50 p-3 rounded-lg"><strong class="text-blue-700">Akıllı İpucu:</strong> ${data.balik_tavsiyesi.akilli_tavsiye.ipucu}</p>
@@ -724,6 +768,31 @@ function sonuclariDetayliGoster(data) {
     attachBarClickListeners();
     if (currentUser) {
         document.getElementById('avi-kaydet-btn').addEventListener('click', () => { kayitModal.classList.remove('hidden'); });
+        const spotBtn = document.getElementById('spot-kaydet-btn');
+        if (spotBtn) {
+            spotBtn.addEventListener('click', async () => {
+                const lat = parseFloat(spotBtn.dataset.lat);
+                const lon = parseFloat(spotBtn.dataset.lon);
+                let bolge = spotBtn.dataset.bolge;
+                if (!bolge || bolge === "null" || bolge === "undefined") bolge = data.istek_yapilan_konum.tespit_edilen_sehir;
+                
+                const spotName = prompt(`Bu koordinatı (${lat.toFixed(4)}, ${lon.toFixed(4)}) kaydetmek için bir isim girin:\nÖrn: "Mırmır Merası"`, bolge);
+                if (!spotName) return;
+                
+                try {
+                    await addDoc(collection(db, `users/${currentUser.uid}/spotlar`), {
+                        lat: lat,
+                        lon: lon,
+                        isim: spotName,
+                        tarih: new Date().toISOString()
+                    });
+                    alert("📍 Nokta başarıyla Favori Spotlarım'a kaydedildi!");
+                } catch (e) {
+                    console.error("Spot kaydedilirken hata:", e);
+                    alert("Spot kaydedilirken bir sorun oluştu.");
+                }
+            });
+        }
     }
 }
 
@@ -736,6 +805,87 @@ function attachBarClickListeners() {
             detayPaneli.innerHTML = `<strong class="text-gray-800">${bar.dataset.saat} için İpucu:</strong> ${bar.dataset.ipucu || 'Özel bir ipucu yok.'} (Sıcaklık: ${bar.dataset.sicaklik}°C)`;
         });
     });
+}
+
+async function spotlariAc() {
+    if (!currentUser) return;
+    spotModal.classList.remove('hidden');
+    spotListesi.innerHTML = '<p class="text-center text-gray-500">Spotlarınız yükleniyor...</p>';
+    
+    try {
+        const q = query(collection(db, `users/${currentUser.uid}/spotlar`), orderBy("tarih", "desc"));
+        const querySnapshot = await getDocs(q);
+        
+        if (querySnapshot.empty) {
+            spotListesi.innerHTML = '<p class="text-center text-gray-500">Henüz kayıtlı spotunuz bulunmuyor.</p>';
+            return;
+        }
+
+        spotListesi.innerHTML = querySnapshot.docs.map(doc => {
+            const s = doc.data();
+            const mapId = `spot-map-${doc.id}`;
+            return `
+                <div class="bg-gray-50 p-4 rounded-lg border shadow-sm relative">
+                    <button class="delete-spot-btn absolute top-3 right-3 text-red-500 hover:text-red-700 text-2xl font-bold" data-id="${doc.id}">&times;</button>
+                    <p class="font-semibold text-lg text-teal-800 pr-8">📍 ${s.isim}</p>
+                    <p class="text-xs text-gray-500 mb-2">${new Date(s.tarih).toLocaleString('tr-TR')} - Koordinat: ${s.lat.toFixed(4)}, ${s.lon.toFixed(4)}</p>
+                    <div class="flex gap-2 mb-3">
+                        <button class="git-spot-btn text-xs bg-teal-600 hover:bg-teal-700 text-white font-medium py-1.5 px-3 rounded" data-lat="${s.lat}" data-lon="${s.lon}">Meraya Git & Tavsiye Al</button>
+                    </div>
+                    <div id="${mapId}" class="w-full h-32 rounded-lg bg-gray-200"></div>
+                </div>`;
+        }).join('');
+
+        document.querySelectorAll('.delete-spot-btn').forEach(btn => btn.addEventListener('click', handleSpotSil));
+        document.querySelectorAll('.git-spot-btn').forEach(btn => btn.addEventListener('click', (e) => {
+            const lat = parseFloat(e.target.dataset.lat);
+            const lon = parseFloat(e.target.dataset.lon);
+            spotModal.classList.add('hidden');
+            map.setView([lat, lon], 12);
+            if (marker) marker.setLatLng([lat, lon]);
+            else marker = L.marker([lat, lon]).addTo(map);
+            haritadanTavsiyeAl(lat, lon, aktifSuTipi);
+            window.scrollTo({ top: document.getElementById('map').offsetTop - 50, behavior: 'smooth' });
+        }));
+
+        setTimeout(() => {
+            querySnapshot.docs.forEach(doc => {
+                const s = doc.data();
+                const mapId = `spot-map-${doc.id}`;
+                const mapElement = document.getElementById(mapId);
+                if (mapElement && mapElement._leaflet_id === undefined) { 
+                    const miniMap = L.map(mapId, {
+                        center: [s.lat, s.lon],
+                        zoom: 12,
+                        zoomControl: false,
+                        attributionControl: false,
+                        dragging: false,
+                        scrollWheelZoom: false,
+                        doubleClickZoom: false,
+                    });
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(miniMap);
+                    L.marker([s.lat, s.lon]).addTo(miniMap);
+                }
+            });
+        }, 100);
+
+    } catch (error) {
+        console.error("Spotlar alınırken hata:", error);
+        spotListesi.innerHTML = '<p class="text-center text-red-500">Spotlarınız yüklenirken bir hata oluştu.</p>';
+    }
+}
+
+async function handleSpotSil(e) {
+    if (!confirm("Bu spotu silmek istediğinize emin misiniz?")) return;
+    const spotId = e.target.dataset.id;
+    try {
+        await deleteDoc(doc(db, `users/${currentUser.uid}/spotlar`, spotId));
+        spotlariAc(); 
+        alert("Spot başarıyla silindi!");
+    } catch (error) {
+        console.error("Spot silinirken hata:", error);
+        alert("Spot silinirken bir hata oluştu.");
+    }
 }
 
 async function defteriAc() {
